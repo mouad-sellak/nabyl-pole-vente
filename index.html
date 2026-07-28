@@ -3,45 +3,56 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nabyl · Audit et intégration de pôle de vente</title>
+<title>NYB Consulting · Audit et intégration de pôle de vente</title>
 <meta name="description" content="J'audite et j'intègre ton pôle de vente pour transformer plus de rendez-vous en clients, sans toucher à ton produit ni à ton trafic. Audit offert, 30 minutes.">
 <meta name="theme-color" content="#0F1216">
 <link rel="canonical" href="https://mouad-sellak.github.io/nabyl-pole-vente/">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
-<meta property="og:title" content="Nabyl · Audit et intégration de pôle de vente">
+<meta property="og:site_name" content="NYB Consulting">
+<meta property="og:title" content="NYB Consulting · Audit et intégration de pôle de vente">
 <meta property="og:description" content="Ton offre est bonne. Ton pôle de vente, lui, laisse filer du chiffre.">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230F1216'/><path d='M9 23V9h2.6l8.8 9.9V9H23v14h-2.6L11.6 13v10H9z' fill='%23FBF9F5'/><circle cx='25' cy='24' r='3' fill='%23D6431C'/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230F1216'/><path d='M6 24V8h2.4l7.2 11V8h2.3v16h-2.4L8.3 13v11H6z' fill='%23FBF9F5'/><path d='M20 8h2.6l2.1 4 2.1-4H29l-3.4 6.2V24h-2.3v-9.8L20 8z' fill='%23FBF9F5'/><rect x='6' y='27' width='23' height='2' fill='%23D6431C'/></svg>">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
 
 <style>
-/* ============================================================
-   Identité : encre profonde + papier chaud + un seul accent signal.
-   Display en serif éditorial (crédibilité conseil), texte en Inter.
-   ============================================================ */
+/* ==========================================================================
+   NYB Consulting
+   Le monde visuel : un rapport d'audit. Encre profonde, papier chaud, un seul
+   trait de correction rouge. Filets d'un cheveu, chiffres tabulaires, titres
+   en serif éditorial. Rien de décoratif : ce qui est marqué est ce qui fuit.
+   ========================================================================== */
 :root{
   --ink:#0F1216;
-  --ink-soft:#1A1F26;
+  --ink-2:#171C22;
   --paper:#FBF9F5;
-  --paper-dim:#F1EDE6;
-  --muted:#6B7280;
-  --muted-dark:#9AA1AB;
-  --accent:#D6431C;
-  --accent-dark:#B7360F;
-  --line:rgba(15,18,22,.12);
-  --line-dark:rgba(251,249,245,.16);
+  --paper-2:#F2EEE7;
 
-  --serif:"Instrument Serif", Georgia, "Times New Roman", serif;
-  --sans:"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  /* gris teintés de la surface, jamais neutres */
+  --quiet:#5F5A52;          /* 6.5:1 sur papier */
+  --quiet-ink:#A8A29A;      /* 7.4:1 sur encre  */
 
-  --shell:1180px;
-  --gut:clamp(20px, 5vw, 56px);
+  --accent:#D6431C;         /* le trait de correction, aplats et filets */
+  --accent-text:#B7360F;    /* 5.6:1 : accent lisible sur papier */
+  --accent-ink:#F0714A;     /* 6.4:1 : accent lisible sur encre  */
+  --accent-btn:#C93C16;     /* 5.1:1 avec du blanc dessus       */
+  --accent-btn-h:#A82F0D;
+
+  --rule:rgba(15,18,22,.14);
+  --rule-ink:rgba(251,249,245,.17);
+
+  --serif:"Newsreader", Georgia, "Times New Roman", serif;
+  --sans:"Archivo", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  --shell:1160px;
+  --gut:clamp(20px, 5vw, 60px);
+  --ease:cubic-bezier(.16,1,.3,1);
 }
 
 *,*::before,*::after{box-sizing:border-box}
@@ -49,305 +60,297 @@ html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
 body{
-  margin:0;
-  background:var(--paper);
-  color:var(--ink);
-  font-family:var(--sans);
-  font-size:17px;
-  line-height:1.62;
-  -webkit-font-smoothing:antialiased;
-  text-rendering:optimizeLegibility;
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:17px;line-height:1.62;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
 }
-
-img{max-width:100%;display:block}
-p{margin:0 0 1.1em}
+p{margin:0 0 1.05em;max-width:70ch}
 p:last-child{margin-bottom:0}
-
 a{color:inherit}
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:1px}
+.dark :focus-visible{outline-color:var(--accent-ink)}
 
 .shell{max-width:var(--shell);margin:0 auto;padding-left:var(--gut);padding-right:var(--gut)}
-.section{padding:clamp(72px,10vw,132px) 0}
+.section{padding:clamp(76px,10vw,140px) 0}
+/* la barre collante ne doit jamais recouvrir la cible d'une ancre */
+section[id]{scroll-margin-top:84px}
 .dark{background:var(--ink);color:var(--paper)}
-.dark .kicker{color:var(--accent)}
-.dark .lede{color:var(--muted-dark)}
+.dark .quiet{color:var(--quiet-ink)}
 
-/* ---------- typographie ---------- */
-.kicker{
-  font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--accent);margin:0 0 22px;display:flex;align-items:center;gap:12px;
-}
-.kicker::after{content:"";flex:1;height:1px;background:currentColor;opacity:.28;max-width:120px}
+h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.018em;line-height:1.05;margin:0}
+h1{font-size:clamp(38px,5vw,63px);line-height:1.07}
+h2{font-size:clamp(30px,3.9vw,46px);line-height:1.1;max-width:21ch}
+h3{font-size:clamp(21px,2.3vw,26px);line-height:1.2;font-weight:500;letter-spacing:-.012em}
+.quiet{color:var(--quiet)}
+.lede{font-size:clamp(17px,1.9vw,20.5px);line-height:1.64;color:var(--quiet);max-width:58ch}
+.em{color:var(--accent-text);font-style:italic}
+.dark .em{color:var(--accent-ink)}
 
-h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.015em;line-height:1.06;margin:0}
-h1{font-size:clamp(40px,6.4vw,76px)}
-h2{font-size:clamp(31px,4.4vw,52px);line-height:1.1}
-h3{font-size:clamp(21px,2.4vw,27px);line-height:1.22}
-
-.lede{font-size:clamp(17px,1.9vw,20px);color:var(--muted);max-width:56ch;line-height:1.66}
-.mark{color:var(--accent);font-style:italic}
-.u{
+/* le trait de correction sous un mot : la seule marque de la maison */
+.strike{
   background-image:linear-gradient(var(--accent),var(--accent));
-  background-repeat:no-repeat;background-position:0 92%;background-size:100% 3px;
-  padding-bottom:2px;
+  background-repeat:no-repeat;background-position:0 88%;background-size:100% 4px;
+  padding-bottom:3px;
 }
 
-/* ---------- boutons ---------- */
+/* -------------------------------------------------- boutons */
 .btn{
   display:inline-flex;align-items:center;gap:12px;
-  font-family:var(--sans);font-size:16px;font-weight:600;letter-spacing:-.005em;
+  font-size:16px;font-weight:600;letter-spacing:-.005em;
   padding:17px 30px;border:1px solid transparent;border-radius:2px;
-  text-decoration:none;cursor:pointer;
-  transition:background-color .18s ease, color .18s ease, transform .18s ease, border-color .18s ease;
+  text-decoration:none;cursor:pointer;font-family:inherit;
+  transition:background-color .2s var(--ease),border-color .2s var(--ease),transform .2s var(--ease);
 }
-.btn--primary{background:var(--accent);color:#fff}
-.btn--primary:hover{background:var(--accent-dark);transform:translateY(-1px)}
-.btn--ghost{border-color:var(--line-dark);color:var(--paper);background:transparent}
-.btn--ghost:hover{background:rgba(251,249,245,.07)}
-.btn .arw{transition:transform .18s ease}
-.btn:hover .arw{transform:translateX(4px)}
-@media (prefers-reduced-motion:reduce){.btn,.btn .arw{transition:none}.btn:hover{transform:none}}
-
-.assur{font-size:14px;color:var(--muted);margin-top:18px;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
-.dark .assur{color:var(--muted-dark)}
-.assur span{display:inline-flex;align-items:center;gap:8px}
-.assur span+span::before{content:"";width:3px;height:3px;border-radius:50%;background:currentColor;opacity:.55}
-
-/* ---------- barre de nav ---------- */
-.nav{
-  position:sticky;top:0;z-index:50;background:rgba(15,18,22,.86);
-  backdrop-filter:saturate(160%) blur(10px);
-  border-bottom:1px solid var(--line-dark);
-}
-.nav__in{display:flex;align-items:center;justify-content:space-between;gap:18px;height:66px}
-.brand{display:flex;align-items:baseline;gap:10px;text-decoration:none;color:var(--paper)}
-.brand__name{font-family:var(--serif);font-size:24px;letter-spacing:-.01em}
-.brand__dot{width:6px;height:6px;border-radius:50%;background:var(--accent);transform:translateY(-2px)}
-.brand__tag{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-dark)}
-@media (max-width:720px){.brand__tag{display:none}}
-.nav .btn{padding:11px 20px;font-size:14px}
-
-/* ---------- hero ---------- */
-.hero{background:var(--ink);color:var(--paper);position:relative;overflow:hidden}
-.hero::after{
-  content:"";position:absolute;inset:auto 0 0 0;height:1px;background:var(--line-dark);
-}
-.hero__in{padding:clamp(64px,9vw,116px) 0 clamp(60px,8vw,104px);position:relative;z-index:1}
-.hero h1{max-width:16ch}
-.hero .lede{margin:30px 0 40px;color:var(--muted-dark);font-size:clamp(17px,2vw,21px)}
-.hero__grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,6vw,72px);align-items:end}
-@media (max-width:900px){.hero__grid{grid-template-columns:1fr;align-items:start}}
-
-/* petit visuel : le tunnel qui fuit */
-.funnel{border:1px solid var(--line-dark);padding:26px 26px 22px;border-radius:3px;background:rgba(251,249,245,.03)}
-.funnel__t{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-dark);margin-bottom:20px}
-.step{display:grid;grid-template-columns:1fr auto;align-items:center;gap:14px;padding:11px 0;border-bottom:1px solid var(--line-dark)}
-.step:last-child{border-bottom:0}
-.step__l{font-size:14.5px;color:var(--paper)}
-.step__b{height:6px;border-radius:99px;background:var(--paper);opacity:.9;min-width:22px}
-.step__v{font-size:13px;color:var(--muted-dark);font-variant-numeric:tabular-nums;min-width:42px;text-align:right}
-.step--leak .step__b{background:var(--accent)}
-.step--leak .step__l{color:var(--accent)}
-.funnel__n{margin-top:18px;font-size:13px;color:var(--muted-dark);line-height:1.5}
-
-/* ---------- problème ---------- */
-.split{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(28px,5vw,72px)}
-@media (max-width:900px){.split{grid-template-columns:1fr;gap:34px}}
-
-.leaks{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
-.leaks li{
-  padding:20px 0 20px 30px;border-bottom:1px solid var(--line);position:relative;
-  font-size:clamp(16px,1.8vw,18.5px);
-}
-.leaks li::before{
-  content:"";position:absolute;left:0;top:31px;width:14px;height:2px;background:var(--accent);
-}
-.pull{
-  margin-top:38px;padding:24px 28px;border-left:2px solid var(--accent);background:var(--paper-dim);
-  font-family:var(--serif);font-size:clamp(20px,2.5vw,26px);line-height:1.34;
+.btn--primary{background:var(--accent-btn);color:#fff}
+.btn--primary:hover{background:var(--accent-btn-h);transform:translateY(-1px)}
+.btn--primary:active{transform:translateY(0)}
+.btn--primary[disabled]{background:#9A9188;cursor:progress;transform:none}
+.btn--line{border-color:var(--rule-ink);color:var(--paper)}
+.btn--line:hover{background:rgba(251,249,245,.08)}
+.btn i{font-style:normal;transition:transform .2s var(--ease)}
+.btn:hover i{transform:translateX(4px)}
+@media (prefers-reduced-motion:reduce){
+  .btn,.btn i{transition:none}
+  .btn:hover{transform:none}.btn:hover i{transform:none}
 }
 
-/* ---------- ce que je fais ---------- */
-.temps{margin-top:clamp(40px,6vw,64px);display:grid;gap:0}
-.temp{
-  display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,4vw,48px);
-  padding:clamp(28px,4vw,42px) 0;border-top:1px solid var(--line);
-}
-.temp:last-child{border-bottom:1px solid var(--line)}
-.temp__n{font-family:var(--serif);font-size:clamp(38px,5vw,60px);line-height:.9;color:var(--accent)}
+.meta{font-size:14px;color:var(--quiet);margin-top:20px;display:flex;flex-wrap:wrap;gap:4px 12px}
+.dark .meta{color:var(--quiet-ink)}
+/* le point suit son propre item : jamais orphelin en début de ligne */
+.meta span:not(:last-child)::after{content:"·";margin-left:12px;opacity:.55}
+
+/* -------------------------------------------------- barre du haut */
+.nav{position:sticky;top:0;z-index:60;background:rgba(15,18,22,.9);
+     backdrop-filter:saturate(150%) blur(8px);border-bottom:1px solid var(--rule-ink)}
+.nav__in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+.mark{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--paper)}
+.mark__n{font-family:var(--serif);font-weight:500;font-size:25px;letter-spacing:.02em;line-height:1}
+.mark__r{width:26px;height:3px;background:var(--accent)}
+.mark__s{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--quiet-ink)}
+@media (max-width:700px){.mark__s,.mark__r{display:none}}
+.nav .btn{padding:11px 19px;font-size:14px}
+
+/* -------------------------------------------------- ouverture */
+.hero{background:var(--ink);color:var(--paper)}
+.hero__in{padding:clamp(52px,6vw,84px) 0 clamp(56px,7vw,94px)}
+.hero__grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(34px,6vw,76px);align-items:center}
+@media (max-width:920px){.hero__grid{grid-template-columns:1fr;gap:44px}}
+.hero h1{max-width:17ch}
+.hero .lede{color:var(--quiet-ink);margin:24px 0 34px;font-size:clamp(17px,1.9vw,20px)}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
+         color:var(--accent-ink);margin:0 0 24px}
+
+/* le relevé : le seul « chart » de la page, et il dit la thèse */
+.releve{border-top:1px solid var(--rule-ink);border-bottom:1px solid var(--rule-ink);padding:8px 0}
+.releve__h{display:flex;justify-content:space-between;align-items:baseline;
+           padding:12px 0 14px;border-bottom:1px solid var(--rule-ink);
+           font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--quiet-ink)}
+.row{display:grid;grid-template-columns:1fr;gap:7px;padding:16px 0;border-bottom:1px solid var(--rule-ink)}
+.row:last-child{border-bottom:0}
+.row__top{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.row__l{font-size:15px;color:var(--paper)}
+.row__v{font-size:14px;color:var(--quiet-ink);font-variant-numeric:tabular-nums;white-space:nowrap}
+.row__track{height:5px;background:rgba(251,249,245,.1)}
+.row__bar{height:100%;width:var(--w);background:var(--paper);
+          transform:scaleX(0);transform-origin:left center;
+          transition:transform 1.1s var(--ease);transition-delay:calc(var(--i) * 130ms)}
+.go .row__bar{transform:scaleX(1)}
+.row--leak .row__l{color:var(--accent-ink)}
+.row--leak .row__v{color:var(--accent-ink)}
+.row--leak .row__bar{background:var(--accent)}
+.releve__n{font-size:14px;color:var(--quiet-ink);line-height:1.5;padding:16px 0 4px;max-width:44ch}
+@media (prefers-reduced-motion:reduce){.row__bar{transition:none;transform:scaleX(1)}}
+
+/* -------------------------------------------------- le problème */
+.split{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,5vw,76px)}
+@media (max-width:920px){.split{grid-template-columns:1fr;gap:34px}}
+
+.fuites{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.fuites li{position:relative;padding:19px 0 19px 32px;border-bottom:1px solid var(--rule);
+           font-size:clamp(16px,1.75vw,18.5px);line-height:1.5}
+.fuites li::before{content:"";position:absolute;left:0;top:30px;width:15px;height:2px;background:var(--accent)}
+.verdict{margin-top:clamp(34px,4vw,46px);font-family:var(--serif);
+         font-size:clamp(22px,2.7vw,30px);line-height:1.3;max-width:26ch}
+
+/* -------------------------------------------------- les deux temps */
+.temps{margin-top:clamp(44px,6vw,70px)}
+.temp{display:grid;grid-template-columns:auto 1fr;gap:clamp(22px,4vw,54px);
+      padding:clamp(30px,4vw,44px) 0;border-top:1px solid var(--rule)}
+.temp:last-child{border-bottom:1px solid var(--rule)}
+.temp__k{font-size:12px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;
+         color:var(--accent-text);white-space:nowrap;padding-top:8px}
+@media (max-width:640px){.temp{grid-template-columns:1fr;gap:14px}.temp__k{padding-top:0}}
 .temp h3{margin-bottom:12px}
-.temp p{color:var(--muted);max-width:62ch}
+.temp p{color:var(--quiet);max-width:64ch}
 
-/* ---------- leviers ---------- */
-.levers{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:clamp(38px,6vw,60px)}
-@media (max-width:860px){.levers{grid-template-columns:1fr}}
-.lever{padding:clamp(28px,3vw,38px) clamp(24px,2.6vw,36px);border-left:1px solid var(--line-dark)}
-.lever:first-child{border-left:0;padding-left:0}
-@media (max-width:860px){
-  .lever{border-left:0;border-top:1px solid var(--line-dark);padding-left:0;padding-right:0}
-  .lever:first-child{border-top:0;padding-top:0}
+/* -------------------------------------------------- les leviers */
+.leviers{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(42px,6vw,68px)}
+@media (max-width:880px){.leviers{grid-template-columns:1fr}}
+.levier{padding:30px clamp(22px,2.4vw,34px) 4px;border-top:1px solid var(--rule-ink);
+        border-left:1px solid var(--rule-ink)}
+.levier:first-child{border-left:0;padding-left:0}
+@media (max-width:880px){
+  .levier{border-left:0;padding-left:0;padding-right:0}
+  .levier:first-child{padding-top:30px}
 }
-.lever__n{font-family:var(--serif);font-size:15px;color:var(--accent);letter-spacing:.08em;margin-bottom:16px}
-.lever h3{color:var(--paper);margin-bottom:14px;font-size:clamp(20px,2.2vw,25px)}
-.lever p{color:var(--muted-dark);font-size:16px;margin:0}
+.levier h3{color:var(--paper);margin-bottom:13px}
+.levier p{color:var(--quiet-ink);font-size:16px;margin:0}
 
-/* ---------- pourquoi moi ---------- */
-.args{list-style:none;margin:clamp(36px,5vw,54px) 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}
+/* -------------------------------------------------- pourquoi lui */
+.args{list-style:none;margin:clamp(40px,5vw,58px) 0 0;padding:0;
+      display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,3.4vw,44px) clamp(34px,5vw,72px)}
 @media (max-width:820px){.args{grid-template-columns:1fr}}
-.args li{background:var(--paper);padding:clamp(24px,3vw,34px)}
-.args b{display:block;font-weight:600;font-size:17px;margin-bottom:8px}
-.args span{color:var(--muted);font-size:16px}
+.args li{border-top:1px solid var(--rule);padding-top:20px}
+.args b{display:block;font-weight:600;font-size:17.5px;margin-bottom:7px}
+.args span{color:var(--quiet);font-size:16px}
 
-/* ---------- process ---------- */
-.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,2.4vw,30px);margin-top:clamp(38px,5vw,58px)}
-@media (max-width:880px){.flow{grid-template-columns:1fr 1fr}}
-@media (max-width:520px){.flow{grid-template-columns:1fr}}
-.node{padding-top:26px;border-top:2px solid var(--ink);position:relative}
-.node:nth-child(n+2){border-top-color:var(--line)}
-.node::before{
-  content:"";position:absolute;top:-5px;left:0;width:8px;height:8px;border-radius:50%;
-  background:var(--ink);
-}
-.node:nth-child(n+2)::before{background:var(--muted);opacity:.45}
-.node__n{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
-.node h3{font-size:clamp(19px,2vw,23px);margin-bottom:10px}
-.node p{color:var(--muted);font-size:15.5px;margin:0}
+/* -------------------------------------------------- déroulé */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,2.6vw,34px);
+      margin-top:clamp(42px,5vw,62px)}
+@media (max-width:900px){.flow{grid-template-columns:1fr 1fr}}
+@media (max-width:540px){.flow{grid-template-columns:1fr}}
+.etape{position:relative;padding-top:28px;border-top:1px solid var(--rule)}
+.etape::before{content:"";position:absolute;top:-4px;left:0;width:7px;height:7px;
+               border-radius:50%;background:var(--accent)}
+.etape__k{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--quiet);margin-bottom:11px}
+.etape h3{font-size:clamp(19px,1.9vw,22px);margin-bottom:9px}
+.etape p{color:var(--quiet);font-size:15.5px;margin:0}
 
-/* ---------- CTA + formulaire ---------- */
-.cta__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,80px);align-items:start}
-@media (max-width:940px){.cta__grid{grid-template-columns:1fr}}
-.cta h2{max-width:14ch}
-.cta .lede{margin-top:26px}
+/* -------------------------------------------------- l'audit */
+.audit__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(38px,6vw,84px);align-items:start}
+@media (max-width:940px){.audit__grid{grid-template-columns:1fr;gap:42px}}
+.audit h2{max-width:15ch}
+.audit .lede{color:var(--quiet-ink);margin-top:26px}
 
-.form{background:var(--paper);color:var(--ink);padding:clamp(26px,3.4vw,40px);border-radius:3px}
-.form__t{font-family:var(--serif);font-size:26px;margin:0 0 6px}
-.form__s{font-size:14.5px;color:var(--muted);margin:0 0 26px}
-.field{margin-bottom:18px}
-.field label{display:block;font-size:13px;font-weight:600;letter-spacing:.02em;margin-bottom:7px}
-.field .opt{font-weight:400;color:var(--muted);letter-spacing:0}
+.form{background:var(--paper);color:var(--ink);padding:clamp(26px,3.4vw,40px);
+      box-shadow:0 26px 56px -26px rgba(0,0,0,.62)}
+.form__t{font-family:var(--serif);font-weight:500;font-size:27px;line-height:1.15;letter-spacing:-.012em;margin:0 0 7px}
+.form__s{font-size:14.5px;color:var(--quiet);margin:0 0 26px}
+.field{margin-bottom:17px}
+.field label{display:block;font-size:13px;font-weight:600;margin-bottom:7px}
+.field .opt{font-weight:400;color:var(--quiet)}
 .field input,.field select,.field textarea{
-  width:100%;font-family:inherit;font-size:16px;color:var(--ink);
-  padding:13px 14px;background:#fff;border:1px solid var(--line);border-radius:2px;
-  transition:border-color .15s ease, box-shadow .15s ease;
+  width:100%;font-family:inherit;font-size:16px;color:var(--ink);background:#fff;
+  padding:13px 14px;border:1px solid var(--rule);border-radius:2px;
+  transition:border-color .16s var(--ease),box-shadow .16s var(--ease);
 }
-.field textarea{resize:vertical;min-height:104px}
-.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B7280' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px}
+.field input::placeholder,.field textarea::placeholder{color:#6E685F}
+.field textarea{resize:vertical;min-height:102px}
+.field select{appearance:none;padding-right:38px;background-repeat:no-repeat;background-position:right 14px center;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235F5A52' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E")}
 .field input:focus,.field select:focus,.field textarea:focus{
-  outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(214,67,28,.14);
-}
-.form .btn{width:100%;justify-content:center;margin-top:6px}
-.form__note{font-size:12.5px;color:var(--muted);margin:16px 0 0;line-height:1.5;text-align:center}
-.form__msg{margin-top:16px;font-size:14.5px;padding:13px 15px;border-radius:2px;display:none}
-.form__msg.ok{display:block;background:#EAF3EC;color:#1E5B31;border:1px solid #C3DFCB}
-.form__msg.ko{display:block;background:#FBEBE7;color:#8F2B0F;border:1px solid #F0CDC3}
-.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(214,67,28,.16)}
+.field [aria-invalid="true"]{border-color:var(--accent-text)}
+.form .btn{width:100%;justify-content:center;margin-top:8px}
+.form__note{font-size:12.5px;color:var(--quiet);margin:15px 0 0;text-align:center;line-height:1.5;max-width:none}
+.form__msg{margin:15px 0 0;font-size:14.5px;padding:12px 15px;border-radius:2px;display:none;max-width:none}
+.form__msg.ok{display:block;background:#E9F2EB;color:#1C5730;border:1px solid #C2DECA}
+.form__msg.ko{display:block;background:#FAEAE5;color:#8A290E;border:1px solid #EFCBC1}
+.trap{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.nojs{margin:15px 0 0;font-size:14px;padding:12px 15px;background:var(--paper-2);border:1px solid var(--rule)}
 
-/* ---------- pied de page ---------- */
-.foot{border-top:1px solid var(--line-dark);background:var(--ink);color:var(--muted-dark);font-size:14px}
-.foot__in{display:flex;flex-wrap:wrap;gap:14px 24px;justify-content:space-between;align-items:center;padding:28px 0}
-.foot a{color:var(--paper);text-decoration:none;border-bottom:1px solid var(--line-dark);padding-bottom:1px}
+/* -------------------------------------------------- pied */
+.foot{background:var(--ink);color:var(--quiet-ink);font-size:14px;border-top:1px solid var(--rule-ink)}
+.foot__in{display:flex;flex-wrap:wrap;gap:12px 26px;justify-content:space-between;
+          align-items:center;padding:30px 0}
+.foot a{color:var(--paper);text-decoration:none;border-bottom:1px solid var(--rule-ink)}
 .foot a:hover{border-bottom-color:var(--accent)}
-
-/* ---------- apparition douce ---------- */
-.rise{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
-.rise.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.rise{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
 
 <header class="nav">
   <div class="shell nav__in">
-    <a class="brand" href="#top">
-      <span class="brand__name">Nabyl</span>
-      <span class="brand__dot" aria-hidden="true"></span>
-      <span class="brand__tag">Pôle de vente</span>
+    <a class="mark" href="#top" aria-label="NYB Consulting, retour en haut">
+      <span class="mark__n">NYB</span>
+      <span class="mark__r" aria-hidden="true"></span>
+      <span class="mark__s">Consulting</span>
     </a>
-    <a class="btn btn--ghost" href="#audit">Réserver mon audit</a>
+    <a class="btn btn--line" href="#audit">Réserver mon audit</a>
   </div>
 </header>
 
 <main id="top">
 
-  <!-- ============ HERO ============ -->
+  <!-- ─────────── ouverture ─────────── -->
   <section class="hero">
     <div class="shell hero__in">
       <div class="hero__grid">
         <div>
-          <p class="kicker">Audit et intégration de pôle de vente</p>
-          <h1>Ton offre est bonne.<br>Ton pôle de vente, lui, <span class="u">laisse filer du chiffre</span>.</h1>
+          <p class="eyebrow">Audit et intégration de pôle de vente</p>
+          <h1>Ton offre est bonne.<br>Ton pôle de vente, lui, <span class="strike">laisse filer du chiffre</span>.</h1>
           <p class="lede">J'audite et j'intègre ton pôle de vente pour transformer plus de rendez-vous en clients, sans toucher à ton produit, ni à ton trafic.</p>
-          <a class="btn btn--primary" href="#audit">Réserver mon audit de vente <span class="arw" aria-hidden="true">→</span></a>
-          <p class="assur">
-            <span>Audit offert</span>
-            <span>30 minutes</span>
-            <span>diagnostic concret, pas un appel déguisé</span>
+          <a class="btn btn--primary" href="#audit">Réserver mon audit de vente <i aria-hidden="true">→</i></a>
+          <p class="meta">
+            <span>Audit offert</span><span>30 minutes</span><span>diagnostic concret, pas un appel déguisé</span>
           </p>
         </div>
 
-        <div class="funnel" aria-label="Illustration : où le chiffre fuit dans le tunnel de vente">
-          <p class="funnel__t">Le tunnel, en vrai</p>
-          <div class="step">
-            <span class="step__l">Leads générés</span>
-            <span class="step__v">100</span>
+        <figure class="releve" style="margin:0">
+          <figcaption class="releve__h"><span>Ton tunnel, aujourd'hui</span><span>Sur 100 leads</span></figcaption>
+
+          <div class="row" style="--i:0;--w:100%">
+            <div class="row__top"><span class="row__l">Leads générés</span><span class="row__v">100</span></div>
+            <div class="row__track"><div class="row__bar"></div></div>
           </div>
-          <div class="step"><span class="step__b" style="width:88%"></span><span class="step__v" aria-hidden="true"></span></div>
-          <div class="step step--leak">
-            <span class="step__l">Rendez-vous honorés</span>
-            <span class="step__v">1 sur 2</span>
+
+          <div class="row" style="--i:1;--w:62%">
+            <div class="row__top"><span class="row__l">Rendez-vous pris</span><span class="row__v">62</span></div>
+            <div class="row__track"><div class="row__bar"></div></div>
           </div>
-          <div class="step"><span class="step__b" style="width:44%"></span><span class="step__v" aria-hidden="true"></span></div>
-          <div class="step step--leak">
-            <span class="step__l">Décisions prises</span>
-            <span class="step__v">?</span>
+
+          <div class="row row--leak" style="--i:2;--w:31%">
+            <div class="row__top"><span class="row__l">Rendez-vous honorés</span><span class="row__v">1 sur 2</span></div>
+            <div class="row__track"><div class="row__bar"></div></div>
           </div>
-          <div class="step"><span class="step__b" style="width:19%"></span><span class="step__v" aria-hidden="true"></span></div>
-          <p class="funnel__n">Le chiffre ne manque pas. Il s'échappe entre deux étapes que personne ne mesure.</p>
-        </div>
+
+          <div class="row row--leak" style="--i:3;--w:11%">
+            <div class="row__top"><span class="row__l">Décisions obtenues</span><span class="row__v">non mesuré</span></div>
+            <div class="row__track"><div class="row__bar"></div></div>
+          </div>
+
+          <p class="releve__n">Schéma d'illustration. Les deux étages en rouge sont ceux que presque personne ne mesure, et ce sont eux qui coûtent.</p>
+        </figure>
       </div>
     </div>
   </section>
 
-  <!-- ============ LE PROBLÈME ============ -->
+  <!-- ─────────── le problème ─────────── -->
   <section class="section" id="probleme">
-    <div class="shell split rise">
+    <div class="shell split">
       <div>
-        <p class="kicker">Le problème</p>
-        <h2>La plupart des infopreneurs ne perdent pas des ventes faute de leads.<br><span class="mark">Ils les perdent après.</span></h2>
+        <h2>La plupart des infopreneurs ne perdent pas des ventes faute de leads.<br><span class="em">Ils les perdent après.</span></h2>
       </div>
       <div>
-        <ul class="leaks">
+        <ul class="fuites">
           <li>Des rendez-vous pris, mais un prospect sur deux ne se présente pas.</li>
           <li>Des appels qui « se passent bien » et finissent sans décision.</li>
           <li>Un discours de vente qui change selon qui décroche le téléphone.</li>
           <li>Aucune idée d'où, exactement, le prospect décroche dans le tunnel.</li>
         </ul>
-        <p class="pull">Tu ne pilotes pas ce que tu ne mesures pas. Et pour l'instant, ton pôle de vente fonctionne à l'instinct.</p>
+        <p class="verdict">Tu ne pilotes pas ce que tu ne mesures pas. Et pour l'instant, ton pôle de vente fonctionne à l'instinct.</p>
       </div>
     </div>
   </section>
 
-  <!-- ============ CE QUE JE FAIS ============ -->
-  <section class="section" id="methode" style="background:var(--paper-dim)">
-    <div class="shell rise">
-      <p class="kicker">Ce que je fais</p>
+  <!-- ─────────── ce que je fais ─────────── -->
+  <section class="section" id="methode" style="background:var(--paper-2)">
+    <div class="shell">
       <div class="split">
         <h2>Une rigueur de vente B2B, appliquée à ton activité.</h2>
-        <div>
-          <p class="lede">Je viens du B2B. De vrais cycles de vente, longs, avec plusieurs décideurs et des montants qui ne se closent pas sur un coup de tête. J'ai appris à structurer une conversation de vente là où l'improvisation ne pardonne pas.</p>
-        </div>
+        <p class="lede">Je viens du B2B. De vrais cycles de vente, longs, avec plusieurs décideurs et des montants qui ne se closent pas sur un coup de tête. J'ai appris à structurer une conversation de vente là où l'improvisation ne pardonne pas.</p>
       </div>
 
       <div class="temps">
         <article class="temp">
-          <div class="temp__n">01</div>
+          <p class="temp__k">Premier temps</p>
           <div>
             <h3>J'audite ton pôle de vente</h3>
             <p>Je démonte ta chaîne, du premier contact au paiement. Scripts, prise de rendez-vous, relances, suivi, objections. Je te rends une carte claire : où tu perds, pourquoi, et par quoi commencer.</p>
           </div>
         </article>
         <article class="temp">
-          <div class="temp__n">02</div>
+          <p class="temp__k">Second temps</p>
           <div>
             <h3>J'intègre ton pôle de vente</h3>
             <p>Je ne te livre pas un PDF. Je rentre dans la machine : je pose le cadre, j'installe le process, et je close, ou je forme ceux qui closent pour toi. Tu récupères un système qui tient sans toi.</p>
@@ -357,24 +360,20 @@ h3{font-size:clamp(21px,2.4vw,27px);line-height:1.22}
     </div>
   </section>
 
-  <!-- ============ LES 3 LEVIERS ============ -->
+  <!-- ─────────── les leviers ─────────── -->
   <section class="section dark" id="leviers">
-    <div class="shell rise">
-      <p class="kicker">Les 3 leviers</p>
-      <h2 style="max-width:18ch">Trois chiffres à bouger. Rien d'autre.</h2>
-      <div class="levers">
-        <article class="lever">
-          <div class="lever__n">01</div>
+    <div class="shell">
+      <h2>Trois chiffres à faire bouger. Rien d'autre.</h2>
+      <div class="leviers">
+        <article class="levier">
           <h3>Chiffre d'affaires</h3>
           <p>Le même trafic, mieux converti. On va chercher le chiffre déjà présent dans ton tunnel, celui qui fuit aujourd'hui.</p>
         </article>
-        <article class="lever">
-          <div class="lever__n">02</div>
+        <article class="levier">
           <h3>Taux de présence</h3>
           <p>Un prospect qui vient est un prospect à moitié convaincu. On sécurise le rendez-vous avant même l'appel : cadre, rappels, engagement.</p>
         </article>
-        <article class="lever">
-          <div class="lever__n">03</div>
+        <article class="levier">
           <h3>Taux de closing</h3>
           <p>Une conversation de vente structurée, reproductible, qui mène à une décision : oui ou non, mais une décision. Fini le « je vais réfléchir ».</p>
         </article>
@@ -382,11 +381,10 @@ h3{font-size:clamp(21px,2.4vw,27px);line-height:1.22}
     </div>
   </section>
 
-  <!-- ============ POURQUOI MOI ============ -->
+  <!-- ─────────── pourquoi lui ─────────── -->
   <section class="section" id="pourquoi">
-    <div class="shell rise">
-      <p class="kicker">Pourquoi moi</p>
-      <h2 style="max-width:20ch">Je ne conseille pas de loin. Je suis dans les appels.</h2>
+    <div class="shell">
+      <h2>Je ne conseille pas de loin. Je suis dans les appels.</h2>
       <ul class="args">
         <li><b>Parcours corpo B2B</b><span>Les cycles de vente complexes, je les connais de l'intérieur.</span></li>
         <li><b>J'intègre, je ne survole pas</b><span>Je rentre dans la machine et je la fais tourner avec toi.</span></li>
@@ -396,29 +394,28 @@ h3{font-size:clamp(21px,2.4vw,27px);line-height:1.22}
     </div>
   </section>
 
-  <!-- ============ COMMENT ON TRAVAILLE ============ -->
-  <section class="section" id="process" style="background:var(--paper-dim)">
-    <div class="shell rise">
-      <p class="kicker">Comment on travaille</p>
-      <h2 style="max-width:18ch">Quatre étapes, dans cet ordre.</h2>
+  <!-- ─────────── déroulé ─────────── -->
+  <section class="section" id="deroule" style="background:var(--paper-2)">
+    <div class="shell">
+      <h2>Quatre étapes, dans cet ordre.</h2>
       <div class="flow">
-        <article class="node">
-          <div class="node__n">Étape 1</div>
+        <article class="etape">
+          <p class="etape__k">Étape 1</p>
           <h3>Audit</h3>
           <p>On regarde ton tunnel ensemble, sans filtre.</p>
         </article>
-        <article class="node">
-          <div class="node__n">Étape 2</div>
+        <article class="etape">
+          <p class="etape__k">Étape 2</p>
           <h3>Plan</h3>
           <p>Je te montre les fuites et l'ordre des priorités.</p>
         </article>
-        <article class="node">
-          <div class="node__n">Étape 3</div>
+        <article class="etape">
+          <p class="etape__k">Étape 3</p>
           <h3>Intégration</h3>
           <p>Je pose le système et je le fais tourner.</p>
         </article>
-        <article class="node">
-          <div class="node__n">Étape 4</div>
+        <article class="etape">
+          <p class="etape__k">Étape 4</p>
           <h3>Passation</h3>
           <p>Tu gardes un pôle de vente autonome.</p>
         </article>
@@ -426,17 +423,13 @@ h3{font-size:clamp(21px,2.4vw,27px);line-height:1.22}
     </div>
   </section>
 
-  <!-- ============ CTA FINAL ============ -->
-  <section class="section dark cta" id="audit">
-    <div class="shell cta__grid rise">
+  <!-- ─────────── l'audit ─────────── -->
+  <section class="section dark audit" id="audit">
+    <div class="shell audit__grid">
       <div>
-        <p class="kicker">L'audit</p>
         <h2>Ton offre mérite un pôle de vente à sa hauteur.</h2>
         <p class="lede">On commence par l'audit. Trente minutes, un diagnostic honnête, et tu repars avec un plan, que tu bosses avec moi ou non.</p>
-        <p class="assur" style="margin-top:26px">
-          <span>Sans engagement</span>
-          <span>réponse sous 24 h</span>
-        </p>
+        <p class="meta"><span>Sans engagement</span><span>réponse sous 24 h</span></p>
       </div>
 
       <form class="form" id="auditForm" novalidate>
@@ -445,7 +438,7 @@ h3{font-size:clamp(21px,2.4vw,27px);line-height:1.22}
 
         <div class="field">
           <label for="f-nom">Prénom et nom</label>
-          <input id="f-nom" name="nom" type="text" autocomplete="name" required placeholder="Nabyl Exemple">
+          <input id="f-nom" name="nom" type="text" autocomplete="name" required placeholder="Camille Durand">
         </div>
 
         <div class="field">
@@ -475,17 +468,18 @@ h3{font-size:clamp(21px,2.4vw,27px);line-height:1.22}
           <textarea id="f-msg" name="message" placeholder="Les gens ne viennent pas aux appels, ou ils disent qu'ils vont réfléchir et disparaissent..."></textarea>
         </div>
 
-        <div class="hp" aria-hidden="true">
-          <label for="f-site">Ne pas remplir</label>
-          <input id="f-site" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+        <div class="trap" aria-hidden="true">
+          <label for="f-trap">Ne pas remplir</label>
+          <input id="f-trap" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
         </div>
 
         <button class="btn btn--primary" type="submit" id="auditSubmit">
-          Envoyer ma demande <span class="arw" aria-hidden="true">→</span>
+          <span id="auditSubmitLabel">Envoyer ma demande</span> <i aria-hidden="true">→</i>
         </button>
 
         <p class="form__note">Tes informations servent uniquement à préparer l'audit. Aucune inscription à quoi que ce soit.</p>
         <p class="form__msg" id="formMsg" role="status" aria-live="polite"></p>
+        <noscript><p class="nojs">Ton navigateur bloque JavaScript : écris directement à <b>contact@exemple.com</b> avec ton activité et ton nombre de rendez-vous par mois.</p></noscript>
       </form>
     </div>
   </section>
@@ -494,102 +488,104 @@ h3{font-size:clamp(21px,2.4vw,27px);line-height:1.22}
 
 <footer class="foot">
   <div class="shell foot__in">
-    <span>Nabyl · Audit et intégration de pôle de vente</span>
+    <span>NYB Consulting · Audit et intégration de pôle de vente</span>
     <span><a href="#audit">Réserver mon audit de vente</a></span>
   </div>
 </footer>
 
 <script>
-/* ============================================================
-   1. Configuration du formulaire.
-      Deux modes, dans cet ordre :
-      - ENDPOINT rempli  : envoi silencieux en arrière-plan (Formspree,
-        Basin, Getform... tout service qui accepte un POST JSON).
-      - ENDPOINT vide    : repli sur le client mail du visiteur,
-        avec un message déjà rédigé. Ça marche sans aucun compte.
-      Voir README.md pour brancher Formspree en une ligne.
-   ============================================================ */
-const CONFIG = {
-  ENDPOINT: "",                       // ex : "https://formspree.io/f/xxxxxxxx"
-  EMAIL: "contact@exemple.com"        // adresse de repli, à remplacer
+/* ==========================================================================
+   1. Le relevé se remplit une fois, à l'arrivée. C'est le seul mouvement
+      de la page : ailleurs, tout est déjà en place.
+   ========================================================================== */
+requestAnimationFrame(function(){
+  requestAnimationFrame(function(){
+    var r = document.querySelector(".releve");
+    if (r) r.classList.add("go");
+  });
+});
+
+/* ==========================================================================
+   2. Formulaire.
+      ENDPOINT rempli  : envoi en arrière-plan (Formspree, Basin, Getform...).
+      ENDPOINT vide    : repli sur le client mail, message déjà rédigé.
+      Détail dans README.md.
+   ========================================================================== */
+var CONFIG = {
+  ENDPOINT: "",                  // ex : "https://formspree.io/f/xxxxxxxx"
+  EMAIL: "contact@exemple.com"   // adresse de repli, à remplacer
 };
 
-const form = document.getElementById("auditForm");
-const msg  = document.getElementById("formMsg");
-const btn  = document.getElementById("auditSubmit");
+var form  = document.getElementById("auditForm");
+var msg   = document.getElementById("formMsg");
+var btn   = document.getElementById("auditSubmit");
+var label = document.getElementById("auditSubmitLabel");
 
-function say(text, ok){
-  msg.textContent = text;
+function dire(texte, ok){
+  msg.textContent = texte;
   msg.className = "form__msg " + (ok ? "ok" : "ko");
 }
 
-form.addEventListener("submit", async function(e){
+function marquer(){
+  var champs = form.querySelectorAll("input[required], select[required]");
+  for (var i = 0; i < champs.length; i++){
+    champs[i].setAttribute("aria-invalid", champs[i].checkValidity() ? "false" : "true");
+  }
+}
+
+form.addEventListener("submit", function(e){
   e.preventDefault();
 
-  if (form._gotcha.value) return;              // piège à robots
+  if (form._gotcha.value) return;                 // piège à robots
 
   if (!form.checkValidity()){
+    marquer();
     form.reportValidity();
-    say("Il manque une information juste au-dessus.", false);
+    dire("Il manque une information juste au-dessus.", false);
     return;
   }
+  marquer();
 
-  const data = Object.fromEntries(new FormData(form).entries());
-  delete data._gotcha;
+  var d = {};
+  new FormData(form).forEach(function(v, k){ if (k !== "_gotcha") d[k] = v; });
 
-  const corps =
-    "Nom : " + data.nom + "\n" +
-    "E-mail : " + data.email + "\n" +
-    "Activité : " + data.activite + "\n" +
-    "Rendez-vous par mois : " + data.rendez_vous_par_mois + "\n\n" +
-    "Où ça coince :\n" + (data.message || "(non précisé)");
+  var corps =
+    "Nom : " + d.nom + "\n" +
+    "E-mail : " + d.email + "\n" +
+    "Activité : " + d.activite + "\n" +
+    "Rendez-vous par mois : " + d.rendez_vous_par_mois + "\n\n" +
+    "Où ça coince :\n" + (d.message || "(non précisé)");
 
   if (!CONFIG.ENDPOINT){
     window.location.href = "mailto:" + CONFIG.EMAIL
-      + "?subject=" + encodeURIComponent("Demande d'audit de vente - " + data.nom)
+      + "?subject=" + encodeURIComponent("Demande d'audit de vente - " + d.nom)
       + "&body=" + encodeURIComponent(corps);
-    say("Ta messagerie s'ouvre avec le message prêt. Il ne reste qu'à envoyer.", true);
+    dire("Ta messagerie s'ouvre avec le message prêt. Il ne reste qu'à l'envoyer.", true);
     return;
   }
 
   btn.disabled = true;
-  const label = btn.innerHTML;
-  btn.textContent = "Envoi en cours...";
+  label.textContent = "Envoi en cours";
 
-  try{
-    const r = await fetch(CONFIG.ENDPOINT, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "Accept": "application/json" },
-      body: JSON.stringify(data)
-    });
+  fetch(CONFIG.ENDPOINT, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "Accept": "application/json" },
+    body: JSON.stringify(d)
+  })
+  .then(function(r){
     if (!r.ok) throw new Error(r.status);
     form.reset();
-    say("C'est envoyé. Je reviens vers toi sous 24 h avec un créneau.", true);
-  }catch(err){
-    say("L'envoi a échoué. Écris-moi directement à " + CONFIG.EMAIL + ".", false);
-  }finally{
+    marquer();
+    dire("C'est envoyé. Je reviens vers toi sous 24 h avec un créneau.", true);
+  })
+  .catch(function(){
+    dire("L'envoi a échoué. Écris-moi directement à " + CONFIG.EMAIL + ".", false);
+  })
+  .then(function(){
     btn.disabled = false;
-    btn.innerHTML = label;
-  }
+    label.textContent = "Envoyer ma demande";
+  });
 });
-
-/* ============================================================
-   2. Apparition douce des sections (désactivée si l'utilisateur
-      a demandé moins d'animations).
-   ============================================================ */
-const doux = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const cibles = document.querySelectorAll(".rise");
-
-if (doux || !("IntersectionObserver" in window)){
-  cibles.forEach(function(el){ el.classList.add("in"); });
-} else {
-  const obs = new IntersectionObserver(function(entries){
-    entries.forEach(function(en){
-      if (en.isIntersecting){ en.target.classList.add("in"); obs.unobserve(en.target); }
-    });
-  }, { rootMargin: "0px 0px -12% 0px", threshold: 0.08 });
-  cibles.forEach(function(el){ obs.observe(el); });
-}
 </script>
 
 </body>
