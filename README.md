@@ -1,8 +1,9 @@
 # NYB Consulting · Audit et intégration de pôle de vente
 
-**Dernière mise à jour : 19 août 2026** · ajout des pages légales exigées pour l'ouverture
-du compte bancaire professionnel (conditions générales, confidentialité, mentions légales,
-prestations et tarifs, contact) et branchement du pied de page sur l'ensemble du site.
+**Dernière mise à jour : 19 août 2026** · identité de la société renseignée (NYB Consulting LLC,
+Nouveau-Mexique), clauses contractuelles arrêtées, passe de design complète sur les cinq pages
+secondaires : sommaire qui suit la lecture, dépliant sur mobile, styles d'impression, lien
+d'évitement clavier, ancres citables par article.
 
 Site en HTML pur (aucune dépendance, aucun build), hébergé sur GitHub Pages.
 
@@ -12,42 +13,101 @@ Site en HTML pur (aucune dépendance, aucun build), hébergé sur GitHub Pages.
 
 | Fichier | Rôle |
 | --- | --- |
-| `index.html` | La page de vente. CSS et JS embarqués, comme avant. |
-| `prestations.html` | Ce qui est vendu et à quel prix. La page que la banque cherche. |
-| `contact.html` | Adresse postale, adresse électronique, téléphone, délai de réponse. |
+| `index.html` | La page de vente. CSS et JS embarqués, autonome. |
+| `prestations.html` | Ce qui est vendu, comment c'est facturé. La page que la banque cherche. |
+| `contact.html` | Adresse postale, adresse électronique, délai de réponse. |
 | `conditions-generales.html` | 18 articles, B2B uniquement, obligation de moyens, responsabilité plafonnée. |
 | `confidentialite.html` | Ce qui est collecté, pourquoi, combien de temps, et les droits. |
-| `mentions-legales.html` | Identité de la LLC, hébergeur, propriété intellectuelle. |
-| `pages.css` | Feuille commune aux cinq pages secondaires. `index.html` garde son CSS embarqué. |
+| `mentions-legales.html` | Identité de la société, hébergeur, propriété intellectuelle. |
+| `pages.css` | Feuille commune aux cinq pages secondaires, styles d'impression compris. |
+| `pages.js` | Sommaire qui suit la lecture, filet d'avancée, dépliant mobile. Rien d'autre. |
+| `CNAME` | Déclare `nybconsulting.com` à GitHub Pages. Ne pas retirer. |
 
-## ⚠️ Ce qui doit être rempli avant d'envoyer le lien à la banque
+Les cinq pages secondaires partagent le même en-tête, la même barre du haut et le même pied de
+page, recopiés dans chaque fichier. Si l'un change, changer les cinq.
 
-Les informations manquantes apparaissent **en rouge souligné en pointillés** sur les pages,
-entre crochets. Impossible de les rater. Tant qu'elles sont là, le site ne doit pas partir
-chez Mercury ni chez Nabyl.
+## ⚠️ Le seul champ encore ouvert
 
-| À fournir | Où ça sert |
-| --- | --- |
-| `[nom légal de la LLC]` | Partout (10 fois) |
-| `[État]` | Mentions légales, CGV (droit applicable) |
-| `[comté et État du siège]` | CGV, tribunal compétent |
-| `[numéro d'immatriculation de la LLC]` | Mentions légales |
-| `[EIN]` | Mentions légales |
-| `[adresse complète du siège]` | Partout (10 fois) |
-| `[nom et adresse de l'agent enregistré]` | Mentions légales |
-| `[prénom et nom du gérant]` | Mentions légales, directeur de publication |
-| `[adresse e-mail de contact]` | Partout (7 fois) + `CONFIG.EMAIL` dans `index.html` |
-| `[numéro de téléphone]` | Contact |
-| `[devise]` | Prestations, CGV |
-| `[prix de l'audit]` · `[prix mensuel de l'intégration]` | Prestations |
-| `[durée de l'audit en jours]` · `[durée d'engagement en mois]` | Prestations |
-| `[délai de paiement en jours]` | CGV 5.3, prestations |
-| `[délai de mise en demeure en jours ouvrés]` | CGV 5.4 |
-| `[frais de retard]` | CGV 5.4, prestations |
-| `[préavis en jours]` | CGV 8.2, prestations |
+**L'adresse électronique de contact.** Elle apparaît sept fois, toujours sous la forme
+`[adresse e-mail]`, affichée en rouge souligné de pointillés. Elle manque aussi dans
+`index.html`, deux fois : dans le bloc `CONFIG` en bas de page et dans le `<noscript>` du
+formulaire, où subsiste `contact@exemple.com`.
 
-Chaque libellé est unique dans tout le dépôt : un remplacement global par libellé suffit,
-sans risque de toucher au mauvais endroit.
+Tant qu'elle n'est pas renseignée, **le site ne doit pas être envoyé à la banque** : Mercury
+teste les canaux de contact déclarés. Aucun lien `mailto` ne pointe vers une adresse d'exemple,
+volontairement : un courriel qui rebondit est pire qu'un champ visiblement vide.
+
+Le domaine étant en place, `contact@nybconsulting.com` est le choix naturel, à condition de
+créer la boîte ou une redirection chez Hostinger.
+
+## Ce qui est renseigné
+
+| Donnée | Valeur | Source |
+| --- | --- | --- |
+| Dénomination sociale | NYB Consulting LLC | fournie par le client |
+| Forme juridique | Limited Liability Company | fournie par le client |
+| État d'immatriculation | Nouveau-Mexique, États-Unis | déduit de l'adresse du siège |
+| Siège social | 1210 Mountain Rd PL, Albuquerque, NM 87110 | fournie par le client |
+| Juridiction compétente | comté de Bernalillo, Nouveau-Mexique | Albuquerque relève de ce comté |
+| Devise de facturation | dollar américain (USD) | cohérent avec l'entité |
+
+Le suffixe « LLC » est ajouté au nom parce que le Nouveau-Mexique l'impose dans la dénomination
+d'une société à responsabilité limitée. À confirmer sur le certificat de constitution.
+
+**Volontairement non publiés :** le numéro d'immatriculation, l'EIN, l'agent enregistré et le nom
+du gérant. Un EIN publié en clair est un vecteur d'usurpation d'identité d'entreprise, et aucune
+de ces mentions n'est exigée pour un site d'entité américaine. Elles s'ajoutent en une ligne si
+la banque les réclame.
+
+## Les clauses arrêtées, à faire valider par le client
+
+| Clause | Valeur retenue | Où |
+| --- | --- | --- |
+| Délai de paiement | 14 jours date de facture | CGV 5.3, prestations |
+| Mise en demeure avant suspension | 5 jours ouvrés | CGV 5.4 |
+| Frais de retard | 75 USD par facture impayée, **sans intérêts au pourcentage** | CGV 5.4, prestations |
+| Préavis de résiliation | 30 jours | CGV 8.2, prestations |
+| Report d'une session | 24 heures | CGV 8.5 |
+| Durée de l'audit | 10 jours ouvrés | prestations |
+| Engagement d'intégration | 3 mois | prestations |
+| Droit applicable | Nouveau-Mexique, tribunaux du comté de Bernalillo | CGV 17 |
+
+Les montants des prestations ne sont pas affichés : la page décrit le **modèle** de facturation
+(forfait pour l'audit, mensuel pour l'intégration) et renvoie le montant ferme à la proposition
+écrite remise sous 24 heures. C'est suffisant pour un dossier bancaire et ça n'engage pas un prix
+que le client n'a pas fixé. Pour afficher des montants, il suffit de deux chiffres.
+
+## Les quatre clauses qui protègent vraiment
+
+- **Art. 6, obligation de moyens.** Aucun volume de ventes ni taux de conversion garanti, et les
+  témoignages ne valent pas promesse de résultat. La clause la plus importante pour un closer.
+- **Art. 13, indépendance des parties.** Empêche un client de requalifier la relation en contrat
+  de travail. Risque réel quand on travaille à temps plein pour une seule boîte.
+- **Art. 14, responsabilité plafonnée** aux sommes perçues sur 12 mois, dommages indirects exclus
+  (perte de chiffre d'affaires, de clientèle).
+- **Art. 2, B2B uniquement.** En excluant les consommateurs, tout le bloc droit de la consommation
+  saute : rétractation de 14 jours, information précontractuelle.
+
+## Parti pris de conception
+
+Le monde visuel est celui d'un **rapport d'audit** : encre profonde, papier chaud, filets d'un
+cheveu, chiffres tabulaires, et un seul rouge qui ne sert qu'à marquer ce qui compte.
+
+- **Typographie :** Newsreader (titres, éditorial) et Archivo (texte, précision). Repli système si
+  Google Fonts est bloqué.
+- **Un seul mouvement d'arrivée** sur les pages de document : le document s'ouvre. Ensuite rien ne
+  bouge tout seul. Le sommaire qui suit la lecture et le filet d'avancée sont des repères de
+  lecture, pas des effets : ils réagissent au lecteur.
+- **Impression.** Un document contractuel finit imprimé ou en PDF : barre, sommaire et boutons
+  disparaissent, le noir remplace le rouge, les articles ne se coupent pas en travers d'une page,
+  et l'adresse des liens s'imprime entre parenthèses pour rester vérifiable sur papier.
+- **Accessibilité :** lien d'évitement clavier, contrastes tous au-dessus de 4.5:1 (y compris les
+  gris secondaires et le rouge sur papier), focus visible partout, cibles tactiles de 44px sur le
+  sommaire mobile, `aria-current` sur l'article en cours, ancres décalées sous la barre collante.
+- **Sans JavaScript**, tout reste lisible : le sommaire est déplié par défaut dans le HTML, seul
+  le repérage de lecture disparaît.
+- **Chaque article est citable.** « Art. 14 » se copie et s'envoie : le numéro d'article est un
+  lien vers son ancre.
 
 ## Le nom de domaine
 

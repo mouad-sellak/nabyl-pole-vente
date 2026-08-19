@@ -22,6 +22,8 @@
 </head>
 <body>
 
+<a class="skip" href="#doc">Aller au contenu</a>
+
 <header class="nav">
   <div class="shell nav__in">
     <a class="mark" href="index.html" aria-label="NYB Consulting, retour à l'accueil">
@@ -31,6 +33,7 @@
     </a>
     <a class="btn btn--line" href="index.html#audit">Réserver mon audit</a>
   </div>
+  <div class="progress" aria-hidden="true"></div>
 </header>
 
 <main>
@@ -51,11 +54,11 @@
   </div>
 </section>
 
-<section class="doc">
+<section class="doc" id="doc">
   <div class="shell doc__grid">
 
-    <nav class="toc" aria-label="Sommaire">
-      <p class="toc__t">Sommaire</p>
+    <details class="toc" open>
+      <summary>Sommaire</summary>
       <ol>
         <li><a href="#art-1">Objet et acceptation</a></li>
         <li><a href="#art-2">Clients professionnels uniquement</a></li>
@@ -76,16 +79,19 @@
         <li><a href="#art-17">Droit applicable et différends</a></li>
         <li><a href="#art-18">Dispositions diverses</a></li>
       </ol>
-    </nav>
+    </details>
 
     <div>
 
       <div class="note">
-        <p><b>Les parties.</b> « Le Prestataire » désigne <span class="tbd">[nom légal de la LLC]</span>, société à responsabilité limitée (<i>limited liability company</i>) de droit de l'État de <span class="tbd">[État]</span>, États-Unis, dont le siège est situé <span class="tbd">[adresse complète du siège]</span>, exerçant sous l'enseigne NYB Consulting. « Le Client » désigne le professionnel qui commande une prestation. « Les Parties » désigne les deux ensemble.</p>
+        <div class="note__in">
+          <p class="note__k">Les parties</p>
+          <p>« Le Prestataire » désigne NYB Consulting LLC, société à responsabilité limitée (<i>limited liability company</i>) de droit de l'État du Nouveau-Mexique, États-Unis, dont le siège est situé 1210 Mountain Rd PL, Albuquerque, NM 87110, États-Unis, exerçant sous l'enseigne NYB Consulting. « Le Client » désigne le professionnel qui commande une prestation. « Les Parties » désigne les deux ensemble.</p>
+        </div>
       </div>
 
       <article class="art" id="art-1" style="--n:'1'">
-        <p class="art__k">Article 1</p>
+        <p class="art__k"><a href="#art-1">Article 1</a></p>
         <h2>Objet et acceptation</h2>
         <ol class="al" style="--n:'1'">
           <li>Les présentes conditions générales régissent l'ensemble des prestations de conseil, d'audit et d'intégration de pôle de vente fournies par le Prestataire, quel qu'en soit le format (accompagnement, formation, conduite d'entretiens de vente).</li>
@@ -97,7 +103,7 @@
       </article>
 
       <article class="art" id="art-2">
-        <p class="art__k">Article 2</p>
+        <p class="art__k"><a href="#art-2">Article 2</a></p>
         <h2>Clients professionnels uniquement</h2>
         <ol class="al" style="--n:'2'">
           <li>Les prestations s'adressent <strong>exclusivement à des professionnels</strong> agissant dans le cadre de leur activité commerciale, artisanale, libérale ou industrielle : sociétés, entrepreneurs individuels, indépendants.</li>
@@ -109,7 +115,7 @@
       </article>
 
       <article class="art" id="art-3">
-        <p class="art__k">Article 3</p>
+        <p class="art__k"><a href="#art-3">Article 3</a></p>
         <h2>Description des prestations</h2>
         <p>Le Prestataire intervient sur la chaîne commerciale du Client, du premier contact jusqu'au paiement. Il ne touche ni au produit, ni à l'acquisition de trafic.</p>
         <ol class="al" style="--n:'3'">
@@ -122,7 +128,7 @@
       </article>
 
       <article class="art" id="art-4">
-        <p class="art__k">Article 4</p>
+        <p class="art__k"><a href="#art-4">Article 4</a></p>
         <h2>Commande et formation du contrat</h2>
         <ol class="al" style="--n:'4'">
           <li>Toute mission fait l'objet d'une proposition commerciale écrite, valable trente jours à compter de son envoi, sauf mention contraire.</li>
@@ -133,16 +139,16 @@
       </article>
 
       <article class="art" id="art-5">
-        <p class="art__k">Article 5</p>
+        <p class="art__k"><a href="#art-5">Article 5</a></p>
         <h2>Prix, facturation et paiement</h2>
         <ol class="al" style="--n:'5'">
-          <li><strong>Prix.</strong> Les prix sont indiqués dans la proposition commerciale, en <span class="tbd">[devise]</span> et hors taxes. Toute taxe, retenue à la source ou prélèvement exigible en vertu de la loi applicable au Client s'ajoute au prix et reste à sa charge.</li>
+          <li><strong>Prix.</strong> Les prix sont indiqués dans la proposition commerciale, en dollars américains (USD) et hors taxes. Toute taxe, retenue à la source ou prélèvement exigible en vertu de la loi applicable au Client s'ajoute au prix et reste à sa charge.</li>
           <li><strong>Facturation.</strong> La facturation suit l'échéancier prévu dans la proposition : un premier versement à la commande, le solde selon le calendrier convenu. Les factures sont transmises par voie électronique.</li>
-          <li><strong>Paiement.</strong> Les factures sont payables à <span class="tbd">[délai de paiement en jours]</span> jours date de facture, par virement bancaire ou par tout autre moyen indiqué sur la facture. Les frais bancaires, de change et de transfert restent à la charge du Client, qui règle le montant net facturé.</li>
-          <li><strong>Retard de paiement.</strong> En cas de facture impayée à son échéance, le Prestataire adresse une mise en demeure par courrier électronique. Si elle reste sans effet pendant <span class="tbd">[délai de mise en demeure en jours ouvrés]</span> jours ouvrés :
+          <li><strong>Paiement.</strong> Les factures sont payables à 14 jours date de facture, par virement bancaire ou par tout autre moyen indiqué sur la facture. Les frais bancaires, de change et de transfert restent à la charge du Client, qui règle le montant net facturé.</li>
+          <li><strong>Retard de paiement.</strong> En cas de facture impayée à son échéance, le Prestataire adresse une mise en demeure par courrier électronique. Si elle reste sans effet pendant cinq jours ouvrés :
             <ul class="tirets" style="margin:12px 0">
               <li>l'exécution de la mission est suspendue de plein droit, sans que cette suspension ouvre droit à indemnité au profit du Client ni ne proroge les délais convenus ;</li>
-              <li>des frais administratifs forfaitaires de <span class="tbd">[frais de retard]</span> par facture impayée sont dus, en couverture des frais de relance et de recouvrement.</li>
+              <li>des frais administratifs forfaitaires de 75 USD par facture impayée sont dus, en couverture des frais de relance et de recouvrement.</li>
             </ul>
             Le Prestataire ne pratique aucun intérêt de retard calculé en pourcentage des sommes dues. La mission reprend à la régularisation complète du compte.</li>
           <li><strong>Absence de compensation.</strong> Le Client ne peut retenir ni compenser aucune somme sans l'accord écrit du Prestataire.</li>
@@ -151,11 +157,14 @@
       </article>
 
       <article class="art" id="art-6">
-        <p class="art__k">Article 6</p>
+        <p class="art__k"><a href="#art-6">Article 6</a></p>
         <h2>Nature de l'engagement : obligation de moyens</h2>
         <div class="note">
-          <p><b>À lire attentivement.</b> Le Prestataire s'engage sur la qualité et la constance de son travail, jamais sur un chiffre. Personne ne peut garantir le résultat d'une vente.</p>
+        <div class="note__in">
+          <p class="note__k">À lire attentivement</p>
+          <p>Le Prestataire s'engage sur la qualité et la constance de son travail, jamais sur un chiffre. Personne ne peut garantir le résultat d'une vente.</p>
         </div>
+      </div>
         <ol class="al" style="--n:'6'">
           <li>Le Prestataire est tenu d'une <strong>obligation de moyens</strong> et non d'une obligation de résultat. Il s'engage à mettre en œuvre le soin, la diligence et les compétences que l'on attend raisonnablement d'un professionnel de son domaine.</li>
           <li><strong>Aucun résultat commercial n'est garanti</strong> : ni volume de ventes, ni chiffre d'affaires, ni marge, ni nombre de rendez-vous, ni taux de présence, ni taux de conversion ou de closing, ni retour sur investissement.</li>
@@ -167,7 +176,7 @@
       </article>
 
       <article class="art" id="art-7">
-        <p class="art__k">Article 7</p>
+        <p class="art__k"><a href="#art-7">Article 7</a></p>
         <h2>Obligations et collaboration du Client</h2>
         <p>La qualité du travail dépend directement de la qualité des informations transmises. Le Client s'engage à :</p>
         <ul class="tirets">
@@ -182,11 +191,11 @@
       </article>
 
       <article class="art" id="art-8">
-        <p class="art__k">Article 8</p>
+        <p class="art__k"><a href="#art-8">Article 8</a></p>
         <h2>Durée, suspension et résiliation</h2>
         <ol class="al" style="--n:'8'">
           <li>La mission court pour la durée fixée dans la proposition commerciale. Sauf mention contraire, elle ne se renouvelle pas par tacite reconduction.</li>
-          <li><strong>Résiliation pour convenance.</strong> Chaque Partie peut mettre fin à une mission en cours moyennant un préavis écrit de <span class="tbd">[préavis en jours]</span> jours. Les prestations réalisées jusqu'à la date d'effet restent dues. Les sommes versées d'avance au titre de prestations non exécutées sont remboursées au prorata, déduction faite des frais déjà engagés et des travaux entamés.</li>
+          <li><strong>Résiliation pour convenance.</strong> Chaque Partie peut mettre fin à une mission en cours moyennant un préavis écrit de 30 jours. Les prestations réalisées jusqu'à la date d'effet restent dues. Les sommes versées d'avance au titre de prestations non exécutées sont remboursées au prorata, déduction faite des frais déjà engagés et des travaux entamés.</li>
           <li><strong>Résiliation pour manquement.</strong> En cas de manquement grave de l'une des Parties à ses obligations, l'autre peut résilier de plein droit quinze jours après une mise en demeure restée sans effet, sans préjudice de tout recours.</li>
           <li>Aucune somme n'est remboursée au titre des prestations déjà exécutées ni des livrables déjà remis, y compris si le Client choisit de ne pas les mettre en œuvre.</li>
           <li><strong>Report des sessions.</strong> Toute session planifiée peut être reportée gratuitement si la demande est formulée au moins vingt-quatre heures à l'avance. À défaut, la session est réputée réalisée et due.</li>
@@ -195,7 +204,7 @@
       </article>
 
       <article class="art" id="art-9">
-        <p class="art__k">Article 9</p>
+        <p class="art__k"><a href="#art-9">Article 9</a></p>
         <h2>Confidentialité</h2>
         <ol class="al" style="--n:'9'">
           <li>Chaque Partie s'engage à garder confidentielles les informations non publiques reçues de l'autre à l'occasion de la mission : chiffres, marges, listes de contacts, scripts, méthodes, projets, enregistrements.</li>
@@ -206,7 +215,7 @@
       </article>
 
       <article class="art" id="art-10">
-        <p class="art__k">Article 10</p>
+        <p class="art__k"><a href="#art-10">Article 10</a></p>
         <h2>Propriété intellectuelle et livrables</h2>
         <ol class="al" style="--n:'10'">
           <li>Les méthodes, savoir-faire, trames, grilles d'analyse, modèles, supports et outils du Prestataire, antérieurs ou développés à l'occasion de la mission, demeurent sa propriété exclusive.</li>
@@ -218,7 +227,7 @@
       </article>
 
       <article class="art" id="art-11">
-        <p class="art__k">Article 11</p>
+        <p class="art__k"><a href="#art-11">Article 11</a></p>
         <h2>Outils, comptes et accès</h2>
         <ol class="al" style="--n:'11'">
           <li>Les logiciels et services tiers utilisés dans le cadre de la mission (outil de gestion de la relation client, téléphonie, agenda, messagerie, plateforme de paiement) sont souscrits au nom du Client, à ses frais, et demeurent sa propriété. Le Client en conserve la maîtrise pleine et entière.</li>
@@ -229,7 +238,7 @@
       </article>
 
       <article class="art" id="art-12">
-        <p class="art__k">Article 12</p>
+        <p class="art__k"><a href="#art-12">Article 12</a></p>
         <h2>Force majeure</h2>
         <ol class="al" style="--n:'12'">
           <li>Aucune Partie n'est responsable d'un manquement causé par un événement échappant à son contrôle raisonnable et qu'elle ne pouvait éviter : catastrophe naturelle, incendie, guerre, acte de terrorisme, épidémie, décision d'une autorité publique, panne généralisée des réseaux de communication ou d'électricité, cyberattaque majeure.</li>
@@ -239,7 +248,7 @@
       </article>
 
       <article class="art" id="art-13">
-        <p class="art__k">Article 13</p>
+        <p class="art__k"><a href="#art-13">Article 13</a></p>
         <h2>Indépendance des parties</h2>
         <ol class="al" style="--n:'13'">
           <li>Le Prestataire intervient en qualité de <strong>prestataire indépendant</strong>. Les présentes ne créent entre les Parties ni contrat de travail, ni lien de subordination, ni société, ni société en participation, ni franchise, ni agence commerciale, ni mandat général.</li>
@@ -251,7 +260,7 @@
       </article>
 
       <article class="art" id="art-14">
-        <p class="art__k">Article 14</p>
+        <p class="art__k"><a href="#art-14">Article 14</a></p>
         <h2>Responsabilité</h2>
         <ol class="al" style="--n:'14'">
           <li>La responsabilité du Prestataire est limitée aux dommages directs, certains et prouvés, résultant d'un manquement à ses obligations.</li>
@@ -264,7 +273,7 @@
       </article>
 
       <article class="art" id="art-15">
-        <p class="art__k">Article 15</p>
+        <p class="art__k"><a href="#art-15">Article 15</a></p>
         <h2>Références commerciales et non-sollicitation</h2>
         <ol class="al" style="--n:'15'">
           <li>Le Prestataire peut citer le nom, le logo et la nature de la mission du Client à titre de référence commerciale. Le Client peut s'y opposer à tout moment par simple écrit, sans avoir à motiver sa demande.</li>
@@ -274,7 +283,7 @@
       </article>
 
       <article class="art" id="art-16">
-        <p class="art__k">Article 16</p>
+        <p class="art__k"><a href="#art-16">Article 16</a></p>
         <h2>Données personnelles</h2>
         <ol class="al" style="--n:'16'">
           <li>Le traitement des données personnelles collectées par le Prestataire pour son propre compte (prospects, interlocuteurs, visiteurs du site) est décrit dans la <a href="confidentialite.html">politique de confidentialité</a>, qui fait partie intégrante des présentes.</li>
@@ -285,19 +294,19 @@
       </article>
 
       <article class="art" id="art-17">
-        <p class="art__k">Article 17</p>
+        <p class="art__k"><a href="#art-17">Article 17</a></p>
         <h2>Droit applicable et règlement des différends</h2>
         <ol class="al" style="--n:'17'">
-          <li>Les présentes sont régies par le droit de l'État de <span class="tbd">[État]</span>, États-Unis d'Amérique, à l'exclusion de ses règles de conflit de lois.</li>
+          <li>Les présentes sont régies par le droit de l'État du Nouveau-Mexique, États-Unis d'Amérique, à l'exclusion de ses règles de conflit de lois.</li>
           <li>La Convention des Nations unies sur les contrats de vente internationale de marchandises est expressément écartée.</li>
           <li>En cas de différend, les Parties s'engagent à rechercher une solution amiable pendant trente jours à compter de la première notification écrite, avant toute action contentieuse.</li>
-          <li>À défaut d'accord, compétence exclusive est attribuée aux tribunaux compétents de <span class="tbd">[comté et État du siège]</span>, États-Unis, y compris en cas de pluralité de défendeurs ou d'appel en garantie.</li>
+          <li>À défaut d'accord, compétence exclusive est attribuée aux tribunaux compétents du comté de Bernalillo, Nouveau-Mexique, États-Unis, y compris en cas de pluralité de défendeurs ou d'appel en garantie.</li>
           <li>Les présentes sont rédigées en français. En cas de traduction, la version française fait foi.</li>
         </ol>
       </article>
 
       <article class="art" id="art-18">
-        <p class="art__k">Article 18</p>
+        <p class="art__k"><a href="#art-18">Article 18</a></p>
         <h2>Dispositions diverses</h2>
         <ol class="al" style="--n:'18'">
           <li><strong>Nullité partielle.</strong> Si une stipulation est jugée nulle ou inapplicable, elle est réputée non écrite et remplacée par une stipulation valide d'effet équivalent. Le reste des présentes conserve sa pleine valeur.</li>
@@ -309,8 +318,11 @@
         </ol>
       </article>
 
-      <div class="note" style="margin-top:34px">
-        <p><b>Une question sur ce document ?</b> Écrire à <span class="tbd">[adresse e-mail de contact]</span>. Les coordonnées complètes figurent sur la <a href="contact.html">page contact</a>.</p>
+      <div class="note">
+        <div class="note__in">
+          <p class="note__k">Nous écrire</p>
+          <p>Une question sur ce document ? Écrire à <span class="tbd">[adresse e-mail]</span>. Les coordonnées complètes figurent sur la <a href="contact.html">page contact</a>.</p>
+        </div>
       </div>
 
     </div>
@@ -333,9 +345,11 @@
       <li><a href="confidentialite.html">Confidentialité</a></li>
       <li><a href="mentions-legales.html">Mentions légales</a></li>
     </ul>
-    <p class="foot__legal"><span class="tbd">[nom légal de la LLC]</span> · <span class="tbd">[adresse complète du siège]</span> · Prestations réservées aux clients professionnels.</p>
+    <p class="foot__legal">NYB Consulting LLC · 1210 Mountain Rd PL, Albuquerque, NM 87110, États-Unis · Prestations réservées aux clients professionnels.</p>
   </div>
 </footer>
+
+<script src="pages.js" defer></script>
 
 </body>
 </html>

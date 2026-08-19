@@ -22,6 +22,8 @@
 </head>
 <body>
 
+<a class="skip" href="#doc">Aller au contenu</a>
+
 <header class="nav">
   <div class="shell nav__in">
     <a class="mark" href="index.html" aria-label="NYB Consulting, retour à l'accueil">
@@ -31,6 +33,7 @@
     </a>
     <a class="btn btn--line" href="index.html#audit">Réserver mon audit</a>
   </div>
+  <div class="progress" aria-hidden="true"></div>
 </header>
 
 <main>
@@ -51,11 +54,11 @@
   </div>
 </section>
 
-<section class="doc">
+<section class="doc" id="doc">
   <div class="shell doc__grid">
 
-    <nav class="toc" aria-label="Sommaire">
-      <p class="toc__t">Sommaire</p>
+    <details class="toc" open>
+      <summary>Sommaire</summary>
       <ol>
         <li><a href="#c-1">Qui traite vos données</a></li>
         <li><a href="#c-2">Ce qui est collecté</a></li>
@@ -70,23 +73,26 @@
         <li><a href="#c-11">Mineurs</a></li>
         <li><a href="#c-12">Évolution de ce document</a></li>
       </ol>
-    </nav>
+    </details>
 
     <div>
 
       <div class="note">
-        <p><b>En une phrase.</b> Nous ne vendons, ne louons et n'échangeons aucune donnée. Il n'y a ni cookie publicitaire, ni outil de mesure d'audience, ni réseau social embarqué sur ce site. Vous remplissez un formulaire, nous vous répondons, point.</p>
+        <div class="note__in">
+          <p class="note__k">En une phrase</p>
+          <p>Nous ne vendons, ne louons et n'échangeons aucune donnée. Il n'y a ni cookie publicitaire, ni outil de mesure d'audience, ni réseau social embarqué sur ce site. Vous remplissez un formulaire, nous vous répondons, point.</p>
+        </div>
       </div>
 
       <article class="art" id="c-1" style="--n:'1'">
-        <p class="art__k">Section 1</p>
+        <p class="art__k"><a href="#c-1">Section 1</a></p>
         <h2>Qui traite vos données</h2>
-        <p>Le responsable du traitement est <span class="tbd">[nom légal de la LLC]</span>, société à responsabilité limitée de droit de l'État de <span class="tbd">[État]</span>, États-Unis, exerçant sous l'enseigne NYB Consulting, dont le siège est situé <span class="tbd">[adresse complète du siège]</span>.</p>
-        <p>Pour toute question relative à vos données ou pour exercer vos droits, écrivez à <span class="tbd">[adresse e-mail de contact]</span>. Nous répondons sous trente jours au plus.</p>
+        <p>Le responsable du traitement est NYB Consulting LLC, société à responsabilité limitée de droit de l'État du Nouveau-Mexique, États-Unis, exerçant sous l'enseigne NYB Consulting, dont le siège est situé 1210 Mountain Rd PL, Albuquerque, NM 87110, États-Unis.</p>
+        <p>Pour toute question relative à vos données ou pour exercer vos droits, écrivez à <span class="tbd">[adresse e-mail]</span>. Nous répondons sous trente jours au plus.</p>
       </article>
 
       <article class="art" id="c-2" style="--n:'2'">
-        <p class="art__k">Section 2</p>
+        <p class="art__k"><a href="#c-2">Section 2</a></p>
         <h2>Ce qui est collecté</h2>
         <h3>Ce que vous envoyez vous-même</h3>
         <p>Le formulaire de demande d'audit collecte : vos prénom et nom, votre adresse électronique, la description de votre activité et de votre offre, votre volume mensuel de rendez-vous de vente, et le message libre que vous rédigez. Tous ces champs sont visibles à l'écran : rien n'est collecté en arrière-plan.</p>
@@ -100,7 +106,7 @@
       </article>
 
       <article class="art" id="c-3" style="--n:'3'">
-        <p class="art__k">Section 3</p>
+        <p class="art__k"><a href="#c-3">Section 3</a></p>
         <h2>Pourquoi, et sur quelle base</h2>
         <ul class="fiche" style="border-top:1px solid var(--rule)">
           <li><span class="k">Répondre à votre demande</span><span class="v">Vous recontacter, préparer et tenir l'échange de diagnostic. Base : mesures précontractuelles prises à votre demande.</span></li>
@@ -112,14 +118,14 @@
       </article>
 
       <article class="art" id="c-4" style="--n:'4'">
-        <p class="art__k">Section 4</p>
+        <p class="art__k"><a href="#c-4">Section 4</a></p>
         <h2>Cookies et mesure d'audience</h2>
         <p><strong>Ce site ne dépose aucun cookie.</strong> Il n'utilise ni outil de mesure d'audience, ni pixel publicitaire, ni bouton de réseau social, ni traceur tiers d'aucune sorte. Aucune bannière de consentement n'est donc nécessaire.</p>
         <p>Si un outil de mesure devait être ajouté un jour, ce document serait mis à jour et un consentement préalable serait demandé lorsque la loi l'exige.</p>
       </article>
 
       <article class="art" id="c-5" style="--n:'5'">
-        <p class="art__k">Section 5</p>
+        <p class="art__k"><a href="#c-5">Section 5</a></p>
         <h2>Qui y a accès</h2>
         <p>Vos données sont accessibles à la personne qui traite votre demande, et à un nombre très restreint de prestataires techniques, uniquement pour ce qu'ils font :</p>
         <ul class="tirets">
@@ -131,14 +137,14 @@
       </article>
 
       <article class="art" id="c-6" style="--n:'6'">
-        <p class="art__k">Section 6</p>
+        <p class="art__k"><a href="#c-6">Section 6</a></p>
         <h2>Transferts hors Union européenne</h2>
         <p>NYB Consulting est établie aux États-Unis, et les prestataires techniques cités ci-dessus le sont également. Si vous résidez dans l'Union européenne, au Royaume-Uni ou en Suisse, vos données sont donc traitées en dehors de votre espace de résidence.</p>
         <p>Ces transferts s'appuient, selon les cas, sur les clauses contractuelles types adoptées par la Commission européenne, sur l'adhésion du prestataire au cadre de protection des données entre l'Union européenne et les États-Unis, ou sur la nécessité du transfert pour l'exécution du contrat conclu avec vous. Une copie des garanties applicables peut être demandée à l'adresse de contact.</p>
       </article>
 
       <article class="art" id="c-7" style="--n:'7'">
-        <p class="art__k">Section 7</p>
+        <p class="art__k"><a href="#c-7">Section 7</a></p>
         <h2>Durées de conservation</h2>
         <ul class="fiche" style="border-top:1px solid var(--rule)">
           <li><span class="k">Demande sans suite</span><span class="v">12 mois à compter du dernier échange, puis suppression.</span></li>
@@ -150,14 +156,14 @@
       </article>
 
       <article class="art" id="c-8" style="--n:'8'">
-        <p class="art__k">Section 8</p>
+        <p class="art__k"><a href="#c-8">Section 8</a></p>
         <h2>Sécurité</h2>
         <p>Le site est servi en HTTPS. L'accès aux messages reçus est protégé par un mot de passe robuste et une authentification à deux facteurs. Le nombre de personnes ayant accès aux données est réduit au strict nécessaire.</p>
         <p>Aucun système n'est infaillible. En cas de violation de données présentant un risque pour vos droits, les personnes concernées et les autorités compétentes sont informées dans les délais prévus par la réglementation applicable.</p>
       </article>
 
       <article class="art" id="c-9" style="--n:'9'">
-        <p class="art__k">Section 9</p>
+        <p class="art__k"><a href="#c-9">Section 9</a></p>
         <h2>Vos droits</h2>
         <p>Dans les conditions prévues par la réglementation qui vous est applicable, notamment le règlement général sur la protection des données pour les personnes situées dans l'Union européenne, vous disposez des droits suivants :</p>
         <ul class="tirets">
@@ -169,29 +175,32 @@
           <li><strong>Portabilité</strong> : recevoir vos données dans un format lisible par machine.</li>
           <li><strong>Retrait du consentement</strong>, lorsque le traitement repose sur celui-ci, sans effet sur ce qui a été fait avant.</li>
         </ul>
-        <p>Pour exercer ces droits, écrivez à <span class="tbd">[adresse e-mail de contact]</span>. Une pièce d'identité peut être demandée en cas de doute sérieux sur l'identité du demandeur. Vous pouvez également introduire une réclamation auprès de l'autorité de contrôle de votre pays : la CNIL en France, l'Autorité de protection des données en Belgique.</p>
+        <p>Pour exercer ces droits, écrivez à <span class="tbd">[adresse e-mail]</span>. Une pièce d'identité peut être demandée en cas de doute sérieux sur l'identité du demandeur. Vous pouvez également introduire une réclamation auprès de l'autorité de contrôle de votre pays : la CNIL en France, l'Autorité de protection des données en Belgique.</p>
       </article>
 
       <article class="art" id="c-10" style="--n:'10'">
-        <p class="art__k">Section 10</p>
+        <p class="art__k"><a href="#c-10">Section 10</a></p>
         <h2>Résidents de Californie</h2>
         <p>Si vous résidez en Californie, vous pouvez demander le détail des catégories de données collectées vous concernant, leur finalité, et leur suppression. <strong>Nous ne vendons ni ne partageons vos données personnelles</strong> au sens de la loi californienne, et nous n'exerçons aucune discrimination à l'égard des personnes qui font valoir leurs droits. Les demandes s'adressent à la même adresse de contact.</p>
       </article>
 
       <article class="art" id="c-11" style="--n:'11'">
-        <p class="art__k">Section 11</p>
+        <p class="art__k"><a href="#c-11">Section 11</a></p>
         <h2>Mineurs</h2>
         <p>Les prestations s'adressent exclusivement à des professionnels. Le site n'est pas destiné aux mineurs et aucune donnée n'est sciemment collectée auprès d'eux. Si une telle donnée nous parvenait, elle serait supprimée sans délai.</p>
       </article>
 
       <article class="art" id="c-12" style="--n:'12'">
-        <p class="art__k">Section 12</p>
+        <p class="art__k"><a href="#c-12">Section 12</a></p>
         <h2>Évolution de ce document</h2>
         <p>Cette politique peut être mise à jour pour refléter un changement d'outil, d'organisation ou de réglementation. La date de dernière mise à jour figure en tête de page. En cas de changement significatif, l'information est portée à la connaissance des personnes concernées par les moyens raisonnablement disponibles.</p>
       </article>
 
-      <div class="note" style="margin-top:34px">
-        <p><b>Une demande sur vos données ?</b> Une seule adresse : <span class="tbd">[adresse e-mail de contact]</span>. Voir aussi les <a href="conditions-generales.html">conditions générales</a> et les <a href="mentions-legales.html">mentions légales</a>.</p>
+      <div class="note">
+        <div class="note__in">
+          <p class="note__k">Exercer vos droits</p>
+          <p>Une seule adresse pour toute demande relative à vos données : <span class="tbd">[adresse e-mail]</span>. Voir aussi les <a href="conditions-generales.html">conditions générales</a> et les <a href="mentions-legales.html">mentions légales</a>.</p>
+        </div>
       </div>
 
     </div>
@@ -214,9 +223,11 @@
       <li><a href="confidentialite.html">Confidentialité</a></li>
       <li><a href="mentions-legales.html">Mentions légales</a></li>
     </ul>
-    <p class="foot__legal"><span class="tbd">[nom légal de la LLC]</span> · <span class="tbd">[adresse complète du siège]</span> · Prestations réservées aux clients professionnels.</p>
+    <p class="foot__legal">NYB Consulting LLC · 1210 Mountain Rd PL, Albuquerque, NM 87110, États-Unis · Prestations réservées aux clients professionnels.</p>
   </div>
 </footer>
+
+<script src="pages.js" defer></script>
 
 </body>
 </html>

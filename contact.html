@@ -22,6 +22,8 @@
 </head>
 <body>
 
+<a class="skip" href="#doc">Aller au contenu</a>
+
 <header class="nav">
   <div class="shell nav__in">
     <a class="mark" href="index.html" aria-label="NYB Consulting, retour à l'accueil">
@@ -31,6 +33,7 @@
     </a>
     <a class="btn btn--line" href="index.html#audit">Réserver mon audit</a>
   </div>
+  <div class="progress" aria-hidden="true"></div>
 </header>
 
 <main>
@@ -51,7 +54,7 @@
   </div>
 </section>
 
-<section class="doc">
+<section class="doc" id="doc">
   <div class="shell">
 
     <h2>Coordonnées</h2>
@@ -63,7 +66,7 @@
           <svg class="ico ico--lg" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5.5-8 12-8 12S4 15.5 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="2.6"/></svg>
           <span>Adresse postale</span>
         </p>
-        <p><span class="tbd">[nom légal de la LLC]</span><br><span class="tbd">[adresse complète du siège]</span></p>
+        <p>NYB Consulting LLC<br>1210 Mountain Rd PL, Albuquerque, NM 87110, États-Unis</p>
         <p style="margin-top:10px;font-size:14.5px">Siège social de la société, et adresse du courrier.</p>
       </article>
 
@@ -72,7 +75,7 @@
           <svg class="ico ico--lg" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg>
           <span>Adresse électronique</span>
         </p>
-        <p><a href="mailto:contact@exemple.com"><span class="tbd">[adresse e-mail de contact]</span></a></p>
+        <p><span class="tbd">[adresse e-mail]</span></p>
         <p style="margin-top:10px;font-size:14.5px">Le canal le plus rapide. Demandes commerciales, factures, données personnelles.</p>
       </article>
 
@@ -82,14 +85,17 @@
           <span>Délai de réponse</span>
         </p>
         <p>Sous 24 heures ouvrées, du lundi au vendredi.</p>
-        <p style="margin-top:10px;font-size:14.5px">Téléphone : <span class="tbd">[numéro de téléphone]</span></p>
+        
       </article>
 
     </div>
 
-    <div class="note" style="margin-top:clamp(44px,5vw,64px);max-width:74ch">
-      <p><b>Pour demander un audit,</b> le formulaire de la page d'accueil va plus vite : il pose les trois questions dont nous avons besoin pour préparer l'échange (votre activité, votre offre, votre volume de rendez-vous). <a href="index.html#audit">Aller au formulaire</a>.</p>
-    </div>
+    <div class="note">
+        <div class="note__in">
+          <p class="note__k">Demande d'audit</p>
+          <p>Le formulaire de la page d'accueil va plus vite qu'un courrier électronique : il pose les trois questions dont nous avons besoin pour préparer l'échange (votre activité, votre offre, votre volume de rendez-vous). <a href="index.html#audit">Aller au formulaire</a>.</p>
+        </div>
+      </div>
 
     <div style="margin-top:clamp(44px,5vw,64px)">
       <h2>Selon votre demande</h2>
@@ -123,9 +129,11 @@
       <li><a href="confidentialite.html">Confidentialité</a></li>
       <li><a href="mentions-legales.html">Mentions légales</a></li>
     </ul>
-    <p class="foot__legal"><span class="tbd">[nom légal de la LLC]</span> · <span class="tbd">[adresse complète du siège]</span> · Prestations réservées aux clients professionnels.</p>
+    <p class="foot__legal">NYB Consulting LLC · 1210 Mountain Rd PL, Albuquerque, NM 87110, États-Unis · Prestations réservées aux clients professionnels.</p>
   </div>
 </footer>
+
+<script src="pages.js" defer></script>
 
 </body>
 </html>

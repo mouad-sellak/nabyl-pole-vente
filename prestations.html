@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Prestations et tarifs · NYB Consulting</title>
-<meta name="description" content="Ce que vend NYB Consulting, ce qui est compris, et à quel prix : audit de pôle de vente et intégration de pôle de vente. Prestations réservées aux professionnels.">
+<meta name="description" content="Ce que vend NYB Consulting, ce qui est compris et comment c'est facturé : audit de pôle de vente et intégration de pôle de vente. Prestations réservées aux professionnels.">
 <meta name="theme-color" content="#0F1216">
 <link rel="canonical" href="https://nybconsulting.com/prestations.html">
 <meta name="robots" content="index, follow">
@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="NYB Consulting">
 <meta property="og:url" content="https://nybconsulting.com/prestations.html">
 <meta property="og:title" content="Prestations et tarifs · NYB Consulting">
-<meta property="og:description" content="Ce que vend NYB Consulting, ce qui est compris, et à quel prix : audit de pôle de vente et intégration de pôle de vente. Prestations réservées aux professionnels.">
+<meta property="og:description" content="Ce que vend NYB Consulting, ce qui est compris et comment c'est facturé : audit de pôle de vente et intégration de pôle de vente. Prestations réservées aux professionnels.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230F1216'/><path d='M6 24V8h2.4l7.2 11V8h2.3v16h-2.4L8.3 13v11H6z' fill='%23FBF9F5'/><path d='M20 8h2.6l2.1 4 2.1-4H29l-3.4 6.2V24h-2.3v-9.8L20 8z' fill='%23FBF9F5'/><rect x='6' y='27' width='23' height='2' fill='%23D6431C'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,6 +21,8 @@
 <link rel="stylesheet" href="pages.css">
 </head>
 <body>
+
+<a class="skip" href="#doc">Aller au contenu</a>
 
 <header class="nav">
   <div class="shell nav__in">
@@ -31,6 +33,7 @@
     </a>
     <a class="btn btn--line" href="index.html#audit">Réserver mon audit</a>
   </div>
+  <div class="progress" aria-hidden="true"></div>
 </header>
 
 <main>
@@ -39,24 +42,27 @@
   <div class="shell">
     <p class="eyebrow">
       <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18"/><path d="M6 20V11M12 20V5M18 20v-6"/></svg>
-      Ce qui est vendu, et à quel prix
+      Ce qui est vendu, et comment c'est facturé
     </p>
     <h1>Prestations et tarifs</h1>
-    <p class="lede">Deux prestations, dans cet ordre. On regarde d'abord où le chiffre fuit, on répare ensuite. Rien n'est facturé avant que le périmètre soit écrit et accepté.</p>
+    <p class="lede">Deux prestations, dans cet ordre : on regarde d'abord où le chiffre fuit, on répare ensuite. Rien n'est facturé avant que le périmètre et le montant soient écrits et acceptés.</p>
     <p class="stamp">
       <span>Dernière mise à jour : <b>19 août 2026</b></span>
-      <span>Prix en <b><span class="tbd">[devise]</span></b>, hors taxes</span>
+      <span>Facturation en <b>dollars américains (USD)</b>, hors taxes</span>
       <span>Clients professionnels uniquement</span>
     </p>
   </div>
 </section>
 
-<section class="doc">
+<section class="doc" id="doc">
   <div class="shell">
 
-    <div class="note" style="max-width:74ch">
-      <p><b>Avant toute chose, un échange de diagnostic offert.</b> Trente minutes, sans engagement et sans frais, pour regarder votre tunnel de vente ensemble. Vous repartez avec un plan, que la suite se fasse avec nous ou non. Ce n'est pas une prestation facturable, c'est la porte d'entrée.</p>
-    </div>
+    <div class="note">
+        <div class="note__in">
+          <p class="note__k">Le point de départ</p>
+          <p>Un échange de diagnostic offert. Trente minutes, sans engagement et sans frais, pour regarder votre tunnel de vente ensemble. Vous repartez avec un plan, que la suite se fasse avec nous ou non. Ce n'est pas une prestation facturable, c'est la porte d'entrée.</p>
+        </div>
+      </div>
 
     <div class="offres">
 
@@ -64,9 +70,12 @@
         <p class="offre__k">Prestation 1</p>
         <h2>Audit de pôle de vente</h2>
         <p class="quiet">Un diagnostic complet de la chaîne commerciale, du premier contact jusqu'au paiement. Vous savez enfin où vous perdez, pourquoi, et par quoi commencer.</p>
-        <p class="prix"><span class="tbd">[prix de l'audit]</span>
-          <small>Forfait, payable à la commande. Durée : <span class="tbd">[durée de l'audit en jours]</span> jours ouvrés.</small>
-        </p>
+        <dl class="modele">
+          <dt>Facturation</dt>
+          <dd>Forfait unique
+            <small>Payable à la commande. Le montant est fixé dans la proposition écrite, remise sous 24 heures après l'échange de diagnostic. Durée de l'audit : 10 jours ouvrés.</small>
+          </dd>
+        </dl>
         <h3>Ce qui est compris</h3>
         <ul class="tirets">
           <li>Analyse de la prise de rendez-vous et du taux de présence.</li>
@@ -87,9 +96,12 @@
         <p class="offre__k">Prestation 2</p>
         <h2>Intégration de pôle de vente</h2>
         <p class="quiet">La mise en œuvre, dans la machine. Le cadre est posé, le process tourne, et les entretiens sont conduits ou les personnes qui les conduisent sont formées.</p>
-        <p class="prix"><span class="tbd">[prix mensuel de l'intégration]</span>
-          <small>Par mois, engagement de <span class="tbd">[durée d'engagement en mois]</span> mois. Facturation mensuelle à échoir.</small>
-        </p>
+        <dl class="modele">
+          <dt>Facturation</dt>
+          <dd>Au mois, engagement initial de trois mois
+            <small>Facturation mensuelle à échoir. Le montant est fixé dans la proposition écrite, remise sous 24 heures après l'échange de diagnostic.</small>
+          </dd>
+        </dl>
         <h3>Ce qui est compris</h3>
         <ul class="tirets">
           <li>Mise en place des trames d'entretien et des séquences de confirmation et de relance.</li>
@@ -111,20 +123,24 @@
     <div style="margin-top:clamp(48px,6vw,76px)">
       <h2>Modalités</h2>
       <ul class="fiche" style="margin-top:26px">
-        <li><span class="k">Devise et taxes</span><span class="v">Prix indiqués en <span class="tbd">[devise]</span>, hors taxes. Toute taxe exigible s'ajoute au prix et reste à la charge du client.</span></li>
+        <li><span class="k">Devise et taxes</span><span class="v">Prix indiqués en dollars américains (USD), hors taxes. Toute taxe exigible s'ajoute au prix et reste à la charge du client.</span></li>
+        <li><span class="k">Communication du prix</span><span class="v">Le montant ferme figure dans la proposition écrite, remise sous 24 heures après l'échange de diagnostic. Il est acquis pour toute la durée de la mission.</span></li>
         <li><span class="k">Moyens de paiement</span><span class="v">Virement bancaire. Tout autre moyen accepté est indiqué sur la facture.</span></li>
         <li><span class="k">Échéancier</span><span class="v">Premier versement à la commande, solde selon le calendrier écrit dans la proposition.</span></li>
-        <li><span class="k">Délai de paiement</span><span class="v"><span class="tbd">[délai de paiement en jours]</span> jours date de facture.</span></li>
-        <li><span class="k">Retard de paiement</span><span class="v">Suspension de la mission et frais administratifs forfaitaires de <span class="tbd">[frais de retard]</span> par facture impayée. Aucun intérêt de retard en pourcentage.</span></li>
+        <li><span class="k">Délai de paiement</span><span class="v">14 jours date de facture.</span></li>
+        <li><span class="k">Retard de paiement</span><span class="v">Suspension de la mission et frais administratifs forfaitaires de 75 USD par facture impayée. Aucun intérêt de retard en pourcentage.</span></li>
         <li><span class="k">Report d'une session</span><span class="v">Gratuit si la demande est faite au moins 24 heures à l'avance. Sinon la session est due.</span></li>
-        <li><span class="k">Résiliation</span><span class="v">Possible par chaque partie avec un préavis écrit de <span class="tbd">[préavis en jours]</span> jours. Les prestations réalisées restent dues, l'avance sur les prestations non exécutées est remboursée au prorata.</span></li>
+        <li><span class="k">Résiliation</span><span class="v">Possible par chaque partie avec un préavis écrit de 30 jours. Les prestations réalisées restent dues, l'avance sur les prestations non exécutées est remboursée au prorata.</span></li>
         <li><span class="k">Remboursement</span><span class="v">Les prestations déjà exécutées et les livrables déjà remis ne sont pas remboursables. Aucun résultat commercial n'est garanti (voir l'article 6 des conditions générales).</span></li>
         <li><span class="k">Où et comment</span><span class="v">À distance, en visioconférence et par téléphone. En français.</span></li>
         <li><span class="k">Clientèle</span><span class="v">Professionnels uniquement : sociétés, entrepreneurs individuels et indépendants.</span></li>
       </ul>
 
-      <div class="note" style="margin-top:30px;max-width:74ch">
-        <p><b>Les montants ci-dessus sont des ordres de grandeur de départ.</b> Le prix ferme d'une mission est celui de la proposition commerciale écrite et acceptée, qui fixe le périmètre exact, les livrables et le calendrier. Elle prévaut sur cette page. Le détail des engagements figure dans les <a href="conditions-generales.html">conditions générales de prestation</a>.</p>
+      <div class="note">
+        <div class="note__in">
+          <p class="note__k">Ce qui fait foi</p>
+          <p>Le prix ferme d'une mission est celui de la proposition commerciale écrite et acceptée, qui fixe le périmètre exact, les livrables, le calendrier et le montant. Elle prévaut sur cette page. Le détail des engagements figure dans les <a href="conditions-generales.html">conditions générales de prestation</a>.</p>
+        </div>
       </div>
 
       <p style="margin-top:34px"><a class="btn btn--primary" href="index.html#audit">Réserver l'échange de diagnostic <i aria-hidden="true">→</i></a></p>
@@ -149,9 +165,11 @@
       <li><a href="confidentialite.html">Confidentialité</a></li>
       <li><a href="mentions-legales.html">Mentions légales</a></li>
     </ul>
-    <p class="foot__legal"><span class="tbd">[nom légal de la LLC]</span> · <span class="tbd">[adresse complète du siège]</span> · Prestations réservées aux clients professionnels.</p>
+    <p class="foot__legal">NYB Consulting LLC · 1210 Mountain Rd PL, Albuquerque, NM 87110, États-Unis · Prestations réservées aux clients professionnels.</p>
   </div>
 </footer>
+
+<script src="pages.js" defer></script>
 
 </body>
 </html>

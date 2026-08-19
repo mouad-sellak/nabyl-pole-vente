@@ -261,9 +261,33 @@ h3{font-size:clamp(21px,2.3vw,26px);line-height:1.2;font-weight:500;letter-spaci
 .foot__legal{margin-top:20px;font-size:13px;line-height:1.55;max-width:78ch;color:var(--quiet-ink)}
 /* le champ que Nabyl doit remplir : impossible a laisser passer */
 .tbd{color:var(--accent-ink);font-weight:600;border-bottom:1px dotted var(--accent-ink);white-space:nowrap}
+
+/* passer la navigation au clavier */
+.skip{position:absolute;left:16px;top:-120px;z-index:100;background:var(--paper);color:var(--ink);
+      font-size:15px;font-weight:600;padding:12px 24px;border:1px solid var(--ink);border-radius:2px;
+      text-decoration:none;transition:top .18s var(--ease)}
+.skip:focus{top:12px}
+
+/* une page de vente s'imprime aussi : elle sert de dossier */
+@media print{
+  @page{margin:16mm}
+  html{scroll-behavior:auto}
+  body{background:#fff;color:#000;font-size:10.5pt}
+  .nav,.skip,.form,.foot__nav{display:none !important}
+  .hero,.dark,.section{background:#fff !important;color:#000 !important;padding:8mm 0}
+  .hero h1,.levier h3,.audit h2{color:#000}
+  .lede,.quiet,.row__l,.row__v,.levier p,.releve__n{color:#333 !important}
+  .shell{max-width:none;padding:0}
+  .row__bar{transition:none;transform:scaleX(1)}
+  .section,.temp,.etape,.levier,.args li{break-inside:avoid}
+  .foot{background:#fff;color:#333;border-top:.5pt solid #999}
+  .foot__legal{color:#333;font-size:8.5pt}
+}
 </style>
 </head>
 <body>
+
+<a class="skip" href="#top">Aller au contenu</a>
 
 <header class="nav">
   <div class="shell nav__in">
@@ -506,7 +530,7 @@ h3{font-size:clamp(21px,2.3vw,26px);line-height:1.2;font-weight:500;letter-spaci
       <li><a href="confidentialite.html">Confidentialité</a></li>
       <li><a href="mentions-legales.html">Mentions légales</a></li>
     </ul>
-    <p class="foot__legal"><span class="tbd">[nom légal de la LLC]</span> · <span class="tbd">[adresse complète du siège]</span> · Prestations de conseil réservées aux clients professionnels. Aucun résultat commercial n'est garanti.</p>
+    <p class="foot__legal">NYB Consulting LLC · 1210 Mountain Rd PL, Albuquerque, NM 87110, États-Unis · Prestations de conseil réservées aux clients professionnels. Aucun résultat commercial n'est garanti.</p>
   </div>
 </footer>
 
