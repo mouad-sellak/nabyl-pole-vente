@@ -1,9 +1,9 @@
 # NYB Consulting · Audit et intégration de pôle de vente
 
-**Dernière mise à jour : 19 août 2026** · identité de la société renseignée (NYB Consulting LLC,
-Nouveau-Mexique), clauses contractuelles arrêtées, passe de design complète sur les cinq pages
-secondaires : sommaire qui suit la lecture, dépliant sur mobile, styles d'impression, lien
-d'évitement clavier, ancres citables par article.
+**Dernière mise à jour : 19 août 2026** · formulaire retiré au profit de deux canaux directs
+(WhatsApp et e-mail), identité de la société renseignée, clauses arrêtées, et une feuille de
+style unique pour tout le site : icônes tracées, entrées à l'arrivée à l'écran, responsive revu,
+styles d'impression.
 
 Site en HTML pur (aucune dépendance, aucun build), hébergé sur GitHub Pages.
 
@@ -26,19 +26,32 @@ Site en HTML pur (aucune dépendance, aucun build), hébergé sur GitHub Pages.
 Les cinq pages secondaires partagent le même en-tête, la même barre du haut et le même pied de
 page, recopiés dans chaque fichier. Si l'un change, changer les cinq.
 
-## ⚠️ Le seul champ encore ouvert
+## ⚠️ La seule chose qui reste à faire
 
-**L'adresse électronique de contact.** Elle apparaît sept fois, toujours sous la forme
-`[adresse e-mail]`, affichée en rouge souligné de pointillés. Elle manque aussi dans
-`index.html`, deux fois : dans le bloc `CONFIG` en bas de page et dans le `<noscript>` du
-formulaire, où subsiste `contact@exemple.com`.
+**Créer la boîte `contact@nybconsulting.com`**, ou une redirection vers une adresse existante.
+Elle est écrite en clair sur les six pages et dans les liens `mailto`. Tant qu'elle ne route
+nulle part, un courriel envoyé depuis le site rebondit, et Mercury teste les canaux de contact
+déclarés. Le domaine étant chez Hostinger, une redirection suffit et se pose en deux minutes.
 
-Tant qu'elle n'est pas renseignée, **le site ne doit pas être envoyé à la banque** : Mercury
-teste les canaux de contact déclarés. Aucun lien `mailto` ne pointe vers une adresse d'exemple,
-volontairement : un courriel qui rebondit est pire qu'un champ visiblement vide.
+Le numéro WhatsApp, lui, fonctionne déjà : **+33 6 67 36 29 41**, avec un message d'ouverture
+pré-rédigé dans le lien.
 
-Le domaine étant en place, `contact@nybconsulting.com` est le choix naturel, à condition de
-créer la boîte ou une redirection chez Hostinger.
+## Le contact, et pourquoi il n'y a pas de formulaire
+
+Le formulaire a été retiré : il supposait quelqu'un pour relever la boîte, un service tiers
+(Formspree) pour l'acheminer, et une page de confidentialité qui décrive tout ça. Un message
+qui tombe dans une boîte que personne ne relève coûte plus qu'il ne rapporte.
+
+À la place, deux canaux directs, sur la page d'accueil et sur la page contact :
+
+| Canal | Détail |
+| --- | --- |
+| WhatsApp | `https://wa.me/33667362941` avec le message d'ouverture pré-rempli dans l'URL |
+| E-mail | `contact@nybconsulting.com`, objet pré-rempli dans le lien `mailto` |
+
+La politique de confidentialité a été mise à jour en conséquence : plus de Formspree, et une
+mention explicite du fait qu'un message WhatsApp transite par WhatsApp Ireland et Meta. C'est
+une donnée que le règlement européen impose de déclarer, et personne ne la déclare.
 
 ## Ce qui est renseigné
 
@@ -93,21 +106,41 @@ que le client n'a pas fixé. Pour afficher des montants, il suffit de deux chiff
 Le monde visuel est celui d'un **rapport d'audit** : encre profonde, papier chaud, filets d'un
 cheveu, chiffres tabulaires, et un seul rouge qui ne sert qu'à marquer ce qui compte.
 
-- **Typographie :** Newsreader (titres, éditorial) et Archivo (texte, précision). Repli système si
-  Google Fonts est bloqué.
-- **Un seul mouvement d'arrivée** sur les pages de document : le document s'ouvre. Ensuite rien ne
-  bouge tout seul. Le sommaire qui suit la lecture et le filet d'avancée sont des repères de
-  lecture, pas des effets : ils réagissent au lecteur.
+**L'architecture de la feuille de style est reprise du Hub CTP** (le CRM de Tariqa Pro), sans
+sa palette : celle-ci appartient au collectif de Zaki et n'a rien à faire sur le site d'une
+autre société. Ce qui est repris, c'est ce qui se transpose :
+
+- **une couleur = un rôle**, défini une fois ;
+- **l'accent en trois rôles** (remplissage, texte, encre posée dessus). Un jeton unique pour les
+  trois est ce qui casse une palette : le rouge qui fait un bouton franc devient illisible en
+  texte sur du papier crème ;
+- **une échelle typographique à crans nommés par rôle, avec de vrais écarts** (12 → 13.5 → 17 →
+  25 → 34 → 62). C'est la leçon la plus utile du Hub CTP : sans écart, l'œil n'a aucun point
+  d'accroche, il lit tout, et la page paraît chargée même quand elle est courte ;
+- **l'alignement plutôt que les boîtes.** Quand tout est une carte, plus rien n'en est une ;
+- **le mouvement sert l'attention**, jamais la décoration, et se coupe entièrement pour qui
+  préfère moins de mouvement.
+
+Le reste :
+
+- **Typographie :** Newsreader (titres, éditorial) et Archivo (texte, précision). Repli système
+  si Google Fonts est bloqué.
+- **Icônes tracées.** Toutes les icônes sont des traits, dessinés à l'arrivée. `pathLength="1"`
+  normalise n'importe quel chemin : la même règle d'animation vaut pour toutes, sans les mesurer.
+  Seul le logo WhatsApp est plein : là, la reconnaissance immédiate est la fonction.
+- **Les entrées se déclenchent à l'arrivée à l'écran**, échelonnées de 90 ms entre frères d'un
+  même groupe. Une animation jouée pour un bloc situé trois écrans plus bas ne sert personne.
+  Piège corrigé : les blocs situés au-dessus du point d'ouverture (page rouverte au milieu, lien
+  avec ancre) sont posés immédiatement, sinon ils restaient invisibles pour toujours.
 - **Impression.** Un document contractuel finit imprimé ou en PDF : barre, sommaire et boutons
   disparaissent, le noir remplace le rouge, les articles ne se coupent pas en travers d'une page,
   et l'adresse des liens s'imprime entre parenthèses pour rester vérifiable sur papier.
-- **Accessibilité :** lien d'évitement clavier, contrastes tous au-dessus de 4.5:1 (y compris les
-  gris secondaires et le rouge sur papier), focus visible partout, cibles tactiles de 44px sur le
-  sommaire mobile, `aria-current` sur l'article en cours, ancres décalées sous la barre collante.
-- **Sans JavaScript**, tout reste lisible : le sommaire est déplié par défaut dans le HTML, seul
-  le repérage de lecture disparaît.
-- **Chaque article est citable.** « Art. 14 » se copie et s'envoie : le numéro d'article est un
-  lien vers son ancre.
+- **Accessibilité :** lien d'évitement clavier, contrastes tous au-dessus de 4.5:1, focus visible
+  partout, cibles tactiles de 44px, boutons pleine largeur sous 640px, `aria-current` sur
+  l'article en cours, ancres décalées sous la barre collante.
+- **Sans JavaScript**, tout reste lisible : le drapeau `.js` est posé dans le `<head>` avant le
+  premier rendu, et c'est lui seul qui autorise à masquer quoi que ce soit.
+- **Chaque article est citable.** « Art. 14 » se copie et s'envoie : le numéro est un lien.
 
 ## Le nom de domaine
 
