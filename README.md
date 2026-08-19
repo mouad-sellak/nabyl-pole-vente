@@ -38,7 +38,6 @@ chez Mercury ni chez Nabyl.
 | `[prénom et nom du gérant]` | Mentions légales, directeur de publication |
 | `[adresse e-mail de contact]` | Partout (7 fois) + `CONFIG.EMAIL` dans `index.html` |
 | `[numéro de téléphone]` | Contact |
-| `[nom de domaine]` | Mentions légales, balises `canonical` |
 | `[devise]` | Prestations, CGV |
 | `[prix de l'audit]` · `[prix mensuel de l'intégration]` | Prestations |
 | `[durée de l'audit en jours]` · `[durée d'engagement en mois]` | Prestations |
@@ -49,6 +48,22 @@ chez Mercury ni chez Nabyl.
 
 Chaque libellé est unique dans tout le dépôt : un remplacement global par libellé suffit,
 sans risque de toucher au mauvais endroit.
+
+## Le nom de domaine
+
+Retenu : **nybconsulting.com** (libre au registre le 19 août 2026). Les balises `canonical`
+et Open Graph des six pages pointent déjà dessus.
+
+Une fois le domaine acheté, il reste trois gestes, faits côté agent :
+
+1. Créer un fichier `CNAME` à la racine du dépôt contenant `nybconsulting.com`.
+   **Ne pas le committer avant que le DNS réponde** : GitHub Pages redirige aussitôt
+   l'adresse `github.io` vers le domaine, et le site tomberait en 404 en attendant.
+2. Chez le registrar, poser les enregistrements :
+   - `A` sur la racine vers `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+   - `CNAME` sur `www` vers `mouad-sellak.github.io`
+3. Dans le dépôt GitHub, onglet *Settings → Pages*, renseigner le domaine et cocher
+   *Enforce HTTPS* une fois le certificat émis (quelques minutes à une heure).
 
 ## Deux choix tranchés dans les conditions générales, à valider
 
