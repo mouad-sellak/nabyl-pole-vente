@@ -6,7 +6,7 @@ prestations et tarifs, contact) et branchement du pied de page sur l'ensemble du
 
 Site en HTML pur (aucune dépendance, aucun build), hébergé sur GitHub Pages.
 
-**En ligne :** https://mouad-sellak.github.io/nabyl-pole-vente/
+**En ligne :** https://nybconsulting.com (miroir : https://mouad-sellak.github.io/nabyl-pole-vente/)
 
 ## Les pages
 
@@ -54,16 +54,15 @@ sans risque de toucher au mauvais endroit.
 Retenu : **nybconsulting.com** (libre au registre le 19 août 2026). Les balises `canonical`
 et Open Graph des six pages pointent déjà dessus.
 
-Une fois le domaine acheté, il reste trois gestes, faits côté agent :
+Le domaine a été acheté chez Hostinger le 19 août 2026 et branché le jour même :
 
-1. Créer un fichier `CNAME` à la racine du dépôt contenant `nybconsulting.com`.
-   **Ne pas le committer avant que le DNS réponde** : GitHub Pages redirige aussitôt
-   l'adresse `github.io` vers le domaine, et le site tomberait en 404 en attendant.
-2. Chez le registrar, poser les enregistrements :
-   - `A` sur la racine vers `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - `CNAME` sur `www` vers `mouad-sellak.github.io`
-3. Dans le dépôt GitHub, onglet *Settings → Pages*, renseigner le domaine et cocher
-   *Enforce HTTPS* une fois le certificat émis (quelques minutes à une heure).
+- zone DNS : quatre `A` sur la racine vers `185.199.108-111.153`, `CNAME` sur `www` vers
+  `mouad-sellak.github.io`. Les deux entrées de parking ont été supprimées ;
+- fichier `CNAME` à la racine du dépôt, qui déclare le domaine à GitHub Pages ;
+- HTTPS activé une fois le certificat émis par GitHub.
+
+Hostinger affiche un avertissement quand on pose plusieurs `A` sur le même nom. Il est
+générique : quatre `A` sur la racine, c'est la configuration documentée par GitHub Pages.
 
 ## Deux choix tranchés dans les conditions générales, à valider
 
