@@ -1,9 +1,10 @@
 # NYB Consulting · Audit et intégration de pôle de vente
 
 **Dernière mise à jour : 19 août 2026** · formulaire retiré au profit de deux canaux directs
-(WhatsApp et e-mail), identité de la société renseignée, clauses arrêtées, et une feuille de
-style unique pour tout le site : icônes tracées, entrées à l'arrivée à l'écran, responsive revu,
-styles d'impression.
+(WhatsApp et e-mail), identité de la société renseignée, clauses arrêtées, feuille de style
+unique pour tout le site, et **deux corrections de fond sur mobile** : la gouttière latérale
+était écrasée sur la page d'accueil et dans le pied (texte collé aux deux bords), et le contenu
+pouvait rester invisible quand la minuterie d'animation du navigateur ne démarrait pas.
 
 Site en HTML pur (aucune dépendance, aucun build), hébergé sur GitHub Pages.
 
@@ -130,11 +131,29 @@ Le reste :
   Seul le logo WhatsApp est plein : là, la reconnaissance immédiate est la fonction.
 - **Les entrées se déclenchent à l'arrivée à l'écran**, échelonnées de 90 ms entre frères d'un
   même groupe. Une animation jouée pour un bloc situé trois écrans plus bas ne sert personne.
-  Piège corrigé : les blocs situés au-dessus du point d'ouverture (page rouverte au milieu, lien
-  avec ancre) sont posés immédiatement, sinon ils restaient invisibles pour toujours.
+- **Le contenu ne dépend jamais d'une animation pour exister.** C'est la règle qui a coûté le
+  plus cher à apprendre ici. Un élément n'est masqué que TANT QU'IL N'EST PAS ENTRÉ ; dès que la
+  classe tombe, son état naturel est « visible ». Il n'y a donc ni `animation-delay` ni
+  `animation-fill-mode` : les deux figent l'élément dans son état de départ, donc invisible, tant
+  que la minuterie du navigateur n'avance pas. Onglet ouvert en arrière-plan, mode économie
+  d'énergie, page restaurée depuis le cache : la minuterie peut rester à zéro et la page reste
+  blanche. L'échelonnement est fait en JavaScript. S'y ajoutent un `animationend` qui libère
+  définitivement l'élément, et un filet de sécurité qui coupe toute animation restante au bout
+  d'une seconde et demie, puis à chaque retour de la page au premier plan.
+- **Piège voisin, corrigé aussi** : les blocs situés au-dessus du point d'ouverture (page
+  rouverte au milieu, lien avec ancre) sont posés immédiatement, sinon ils n'entrent jamais dans
+  le champ de l'observateur et restent invisibles pour toujours.
 - **Impression.** Un document contractuel finit imprimé ou en PDF : barre, sommaire et boutons
   disparaissent, le noir remplace le rouge, les articles ne se coupent pas en travers d'une page,
   et l'adresse des liens s'imprime entre parenthèses pour rester vérifiable sur papier.
+- **Sur mobile, tout se centre** : titres, accroches, icônes, appels à l'action, cartes de
+  contact. Ce qui ne se centre PAS, délibérément : les listes à puces, les tableaux d'identité,
+  le relevé et le corps des articles contractuels. Un paragraphe long centré se lit mal, l'oeil
+  perdant le bord gauche à chaque retour à la ligne.
+- **Piège CSS à ne pas réintroduire** : un élément qui porte `.shell` ne doit jamais déclarer le
+  raccourci `padding`. Le raccourci remet le gauche et le droite à zéro et colle le texte aux
+  deux bords de l'écran. C'est ce qui rendait la page d'accueil et le pied illisibles sur
+  iPhone. Toujours `padding-top` / `padding-bottom`.
 - **Accessibilité :** lien d'évitement clavier, contrastes tous au-dessus de 4.5:1, focus visible
   partout, cibles tactiles de 44px, boutons pleine largeur sous 640px, `aria-current` sur
   l'article en cours, ancres décalées sous la barre collante.

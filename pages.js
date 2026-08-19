@@ -18,37 +18,65 @@
      ---------------------------------------------------------------------- */
   var aEntrer = [].slice.call(document.querySelectorAll("[data-ax]"));
 
-  if (!aEntrer.length) { /* rien à faire */ }
-  else if (doux.matches || !("IntersectionObserver" in window)) {
-    aEntrer.forEach(function (el) { el.classList.add("is-in"); });
-  } else {
-    /* échelonner les frères d'un même groupe : 90 ms d'écart, plafonné,
-       pour que la dernière carte n'arrive pas une seconde après la première */
-    var groupes = new Map();
-    aEntrer.forEach(function (el) {
-      if (el.style.getPropertyValue("--d")) return;
-      var p = el.parentElement;
-      var rang = groupes.get(p) || 0;
-      groupes.set(p, rang + 1);
-      if (rang) el.style.setProperty("--d", Math.min(rang * 90, 360) + "ms");
-    });
+  function poser(el) { el.classList.add("is-in"); }
+  function libérer(el) { el.classList.add("is-in", "ax-fini"); }
 
-    var oeil = new IntersectionObserver(function (entrees) {
-      entrees.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        e.target.classList.add("is-in");
-        oeil.unobserve(e.target);
+  /* Une fois l'animation finie, on rend la main : l'élément n'est plus animé,
+     et plus rien ne peut le laisser à zéro. */
+  document.addEventListener("animationend", function (e) {
+    if (e.animationName === "ax-fade-up" && e.target.hasAttribute("data-ax")) {
+      e.target.classList.add("ax-fini");
+    }
+  }, true);
+
+  if (aEntrer.length) {
+    if (doux.matches || !("IntersectionObserver" in window)) {
+      aEntrer.forEach(libérer);
+    } else {
+      /* Échelonner : 90 ms d'écart entre frères d'un même groupe, plafonné, pour
+         que la dernière carte n'arrive pas une seconde après la première. Le
+         décalage est fait ICI et non par `animation-delay` : un délai CSS fige
+         l'élément dans son état de départ, donc invisible, tant que la minuterie
+         du navigateur n'avance pas. */
+      var rangs = new Map();
+      var oeil = new IntersectionObserver(function (entrees) {
+        entrees.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          oeil.unobserve(e.target);
+          var d = rangs.get(e.target) || 0;
+          if (d) setTimeout(poser, d, e.target); else poser(e.target);
+        });
+      }, { rootMargin: "0px 0px -12% 0px", threshold: 0.01 });
+
+      var compte = new Map();
+      aEntrer.forEach(function (el) {
+        var p = el.parentElement;
+        var rang = compte.get(p) || 0;
+        compte.set(p, rang + 1);
+        rangs.set(el, Math.min(rang * 90, 360));
+
+        /* Ce qui est déjà à l'écran, ou déjà passé, est posé tout de suite.
+           Sans ça, une page rouverte au milieu (position restaurée, lien avec
+           ancre) laisse invisibles pour toujours les blocs situés au-dessus :
+           ils n'entrent jamais dans le champ de l'observateur. */
+        if (el.getBoundingClientRect().top < window.innerHeight) {
+          var d = rangs.get(el);
+          if (d) setTimeout(poser, d, el); else poser(el);
+        } else {
+          oeil.observe(el);
+        }
       });
-    }, { rootMargin: "0px 0px -12% 0px", threshold: 0.01 });
 
-    /* Ce qui est déjà à l'écran, ou déjà passé, est posé tout de suite. Sans
-       ça, une page rouverte au milieu (restauration de position, lien avec
-       ancre) laisse invisibles pour toujours tous les blocs situés au-dessus :
-       ils n'entrent jamais dans le champ de l'observateur. */
-    aEntrer.forEach(function (el) {
-      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add("is-in");
-      else oeil.observe(el);
-    });
+      /* Filet de sécurité. Quoi qu'il arrive - observateur en défaut, minuterie
+         d'animation gelée, page ouverte dans un onglet d'arrière-plan - tout est
+         libéré au bout d'une seconde et demie, et de nouveau au moment où la
+         page redevient visible. Une page ne reste jamais blanche. */
+      var filet = function () { aEntrer.forEach(libérer); };
+      setTimeout(filet, 1500);
+      document.addEventListener("visibilitychange", function () {
+        if (document.visibilityState === "visible") setTimeout(filet, 1500);
+      });
+    }
   }
 
   /* ----------------------------------------------------------------------
