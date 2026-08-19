@@ -1,0 +1,203 @@
+/* ==========================================================================
+   NYB Consulting · feuille commune aux pages secondaires
+   (mentions légales, conditions générales, confidentialité, prestations,
+   contact). Même monde visuel que la page de vente : encre profonde, papier
+   chaud, filets d'un cheveu, chiffres tabulaires, un seul rouge qui marque.
+   La page de vente garde son CSS embarqué : elle n'a besoin de rien d'autre.
+   ========================================================================== */
+:root{
+  --ink:#0F1216;
+  --ink-2:#171C22;
+  --paper:#FBF9F5;
+  --paper-2:#F2EEE7;
+
+  --quiet:#5F5A52;
+  --quiet-ink:#A8A29A;
+
+  --accent:#D6431C;
+  --accent-text:#B7360F;
+  --accent-ink:#F0714A;
+  --accent-btn:#C93C16;
+  --accent-btn-h:#A82F0D;
+
+  --rule:rgba(15,18,22,.14);
+  --rule-ink:rgba(251,249,245,.17);
+
+  --serif:"Newsreader", Georgia, "Times New Roman", serif;
+  --sans:"Archivo", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  --shell:1160px;
+  --gut:clamp(20px, 5vw, 60px);
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:17px;line-height:1.62;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+p{margin:0 0 1.05em;max-width:74ch}
+p:last-child{margin-bottom:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:1px}
+.dark :focus-visible{outline-color:var(--accent-ink)}
+
+.shell{max-width:var(--shell);margin:0 auto;padding-left:var(--gut);padding-right:var(--gut)}
+.dark{background:var(--ink);color:var(--paper)}
+.dark .quiet{color:var(--quiet-ink)}
+.quiet{color:var(--quiet)}
+
+h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.018em;line-height:1.05;margin:0}
+h1{font-size:clamp(34px,4.4vw,54px);line-height:1.08;max-width:20ch}
+h2{font-size:clamp(23px,2.5vw,29px);line-height:1.16;font-weight:500;letter-spacing:-.012em}
+h3{font-size:clamp(18px,1.9vw,20px);line-height:1.25;font-weight:600;font-family:var(--sans);letter-spacing:-.006em}
+.lede{font-size:clamp(17px,1.9vw,20px);line-height:1.64;color:var(--quiet);max-width:60ch}
+.dark .lede{color:var(--quiet-ink)}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
+         color:var(--accent-ink);margin:0 0 22px;display:flex;align-items:center;gap:9px}
+.em{color:var(--accent-text);font-style:italic}
+
+/* -------------------------------------------------- icônes (traits, jamais des vignettes) */
+.ico{width:19px;height:19px;flex:0 0 19px;stroke:currentColor;fill:none;
+     stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.ico--lg{width:22px;height:22px;flex-basis:22px}
+
+/* -------------------------------------------------- boutons */
+.btn{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:16px;font-weight:600;letter-spacing:-.005em;
+  padding:17px 30px;border:1px solid transparent;border-radius:2px;
+  text-decoration:none;cursor:pointer;font-family:inherit;
+  transition:background-color .2s var(--ease),border-color .2s var(--ease),transform .2s var(--ease);
+}
+.btn--primary{background:var(--accent-btn);color:#fff}
+.btn--primary:hover{background:var(--accent-btn-h);transform:translateY(-1px)}
+.btn--primary:active{transform:translateY(0)}
+.btn--line{border-color:var(--rule-ink);color:var(--paper)}
+.btn--line:hover{background:rgba(251,249,245,.08)}
+.btn i{font-style:normal;transition:transform .2s var(--ease)}
+.btn:hover i{transform:translateX(4px)}
+@media (prefers-reduced-motion:reduce){
+  .btn,.btn i{transition:none}
+  .btn:hover{transform:none}.btn:hover i{transform:none}
+}
+
+/* -------------------------------------------------- barre du haut */
+.nav{position:sticky;top:0;z-index:60;background:rgba(15,18,22,.9);
+     backdrop-filter:saturate(150%) blur(8px);border-bottom:1px solid var(--rule-ink)}
+.nav__in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+.mark{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--paper)}
+.mark__n{font-family:var(--serif);font-weight:500;font-size:25px;letter-spacing:.02em;line-height:1}
+.mark__r{width:26px;height:3px;background:var(--accent)}
+.mark__s{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--quiet-ink)}
+@media (max-width:700px){.mark__s,.mark__r{display:none}}
+.nav .btn{padding:11px 19px;font-size:14px}
+
+/* -------------------------------------------------- en-tête de document */
+.doc-head{background:var(--ink);color:var(--paper);padding:clamp(48px,6vw,78px) 0 clamp(40px,5vw,58px)}
+.doc-head h1{color:var(--paper)}
+.doc-head .lede{margin-top:22px}
+.stamp{display:flex;flex-wrap:wrap;gap:8px 26px;margin-top:30px;padding-top:20px;
+       border-top:1px solid var(--rule-ink);font-size:13.5px;color:var(--quiet-ink)}
+.stamp b{color:var(--paper);font-weight:600;font-variant-numeric:tabular-nums}
+
+/* -------------------------------------------------- corps de document */
+.doc{padding:clamp(50px,6vw,84px) 0 clamp(64px,8vw,104px)}
+.doc__grid{display:grid;grid-template-columns:238px 1fr;gap:clamp(34px,5vw,72px);align-items:start}
+@media (max-width:940px){.doc__grid{grid-template-columns:1fr;gap:34px}}
+
+/* sommaire : une table des matières, pas un menu */
+.toc{position:sticky;top:96px}
+@media (max-width:940px){.toc{position:static;border:1px solid var(--rule);padding:20px 22px;background:var(--paper-2)}}
+.toc__t{font-size:12px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;
+        color:var(--quiet);margin:0 0 14px;padding-bottom:12px;border-bottom:1px solid var(--rule)}
+.toc ol{list-style:none;margin:0;padding:0;counter-reset:toc}
+.toc li{counter-increment:toc}
+.toc a{display:grid;grid-template-columns:26px 1fr;gap:8px;padding:6px 0;
+       font-size:14.5px;line-height:1.42;color:var(--quiet);text-decoration:none}
+.toc a::before{content:counter(toc);font-variant-numeric:tabular-nums;font-size:12.5px;
+               color:var(--accent-text);padding-top:2px}
+.toc a:hover{color:var(--ink)}
+
+.art{border-top:1px solid var(--rule);padding:clamp(26px,3vw,34px) 0}
+.art:first-of-type{border-top:0;padding-top:0}
+.art:last-of-type{border-bottom:1px solid var(--rule)}
+.art{scroll-margin-top:88px}
+.art__k{font-size:12px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;
+        color:var(--accent-text);margin:0 0 10px}
+.art h2{margin-bottom:16px;max-width:26ch}
+.art h3{margin:26px 0 10px}
+.art p{color:var(--quiet)}
+.art p strong,.art li strong{color:var(--ink);font-weight:600}
+
+/* alinéas numérotés : 5.1, 5.2... en chiffres tabulaires */
+.al{list-style:none;margin:0 0 1.05em;padding:0;counter-reset:al}
+.al>li{counter-increment:al;position:relative;padding-left:44px;margin-bottom:13px;
+       color:var(--quiet);max-width:74ch}
+.al>li:last-child{margin-bottom:0}
+.al>li::before{content:var(--n) "." counter(al);position:absolute;left:0;top:0;
+               font-size:13.5px;font-variant-numeric:tabular-nums;color:var(--accent-text);
+               padding-top:3px}
+
+/* liste à filets, reprise de la page de vente */
+.tirets{list-style:none;margin:0 0 1.05em;padding:0}
+.tirets li{position:relative;padding:0 0 12px 30px;color:var(--quiet);max-width:74ch}
+.tirets li:last-child{padding-bottom:0}
+.tirets li::before{content:"";position:absolute;left:0;top:13px;width:15px;height:2px;background:var(--accent)}
+
+/* l'encadré « ce qu'il faut retenir » */
+.note{background:var(--paper-2);border-left:2px solid var(--accent);
+      padding:20px 24px;margin:22px 0;font-size:16px;color:var(--quiet)}
+.note b{color:var(--ink)}
+.note p{max-width:66ch}
+
+/* le champ que Nabyl doit remplir : impossible à laisser passer */
+.tbd{color:var(--accent-text);font-weight:600;
+     border-bottom:1px dotted var(--accent);white-space:nowrap}
+.dark .tbd{color:var(--accent-ink);border-bottom-color:var(--accent-ink)}
+
+/* -------------------------------------------------- fiche d'identité / contact */
+.fiche{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.fiche li{display:grid;grid-template-columns:230px 1fr;gap:6px 26px;
+          padding:15px 0;border-bottom:1px solid var(--rule)}
+@media (max-width:640px){.fiche li{grid-template-columns:1fr;gap:3px}}
+.fiche dt,.fiche .k{font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--quiet);padding-top:2px}
+.fiche .v{font-variant-numeric:tabular-nums}
+
+.cartes{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.6vw,32px);
+        margin-top:clamp(34px,4vw,48px)}
+@media (max-width:860px){.cartes{grid-template-columns:1fr}}
+.carte{border-top:1px solid var(--rule);padding-top:24px}
+.carte__h{display:flex;align-items:center;gap:10px;color:var(--accent-text);margin-bottom:12px}
+.carte__h span{font-size:12px;font-weight:600;letter-spacing:.13em;text-transform:uppercase}
+.carte p{font-size:16px;color:var(--quiet);margin:0}
+.carte a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule)}
+.carte a:hover{border-bottom-color:var(--accent)}
+
+/* -------------------------------------------------- tarifs */
+.offres{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,56px);
+        margin-top:clamp(38px,5vw,60px)}
+@media (max-width:860px){.offres{grid-template-columns:1fr}}
+.offre{border-top:2px solid var(--ink);padding-top:26px}
+.offre__k{font-size:12px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;
+          color:var(--accent-text);margin:0 0 12px}
+.offre h2{margin-bottom:14px}
+.offre h3{margin:28px 0 11px}
+.prix{font-family:var(--serif);font-size:clamp(30px,3.6vw,40px);line-height:1.12;
+      letter-spacing:-.018em;margin:22px 0 4px;font-variant-numeric:tabular-nums}
+.prix small{font-family:var(--sans);font-size:14px;font-weight:500;color:var(--quiet);
+            letter-spacing:0;line-height:1.5;display:block;margin-top:11px;max-width:38ch}
+
+/* -------------------------------------------------- pied */
+.foot{background:var(--ink);color:var(--quiet-ink);font-size:14px;border-top:1px solid var(--rule-ink)}
+.foot__in{padding:34px 0 30px}
+.foot__top{display:flex;flex-wrap:wrap;gap:14px 26px;justify-content:space-between;align-items:baseline}
+.foot__nav{display:flex;flex-wrap:wrap;gap:10px 22px;margin:22px 0 0;padding:20px 0 0;
+           border-top:1px solid var(--rule-ink);list-style:none}
+.foot a{color:var(--paper);text-decoration:none;border-bottom:1px solid var(--rule-ink)}
+.foot a:hover{border-bottom-color:var(--accent)}
+.foot__legal{margin-top:20px;font-size:13px;line-height:1.55;max-width:78ch;color:var(--quiet-ink)}

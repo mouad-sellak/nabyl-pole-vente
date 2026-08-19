@@ -251,10 +251,15 @@ h3{font-size:clamp(21px,2.3vw,26px);line-height:1.2;font-weight:500;letter-spaci
 
 /* -------------------------------------------------- pied */
 .foot{background:var(--ink);color:var(--quiet-ink);font-size:14px;border-top:1px solid var(--rule-ink)}
-.foot__in{display:flex;flex-wrap:wrap;gap:12px 26px;justify-content:space-between;
-          align-items:center;padding:30px 0}
+.foot__in{padding:34px 0 30px}
+.foot__top{display:flex;flex-wrap:wrap;gap:14px 26px;justify-content:space-between;align-items:baseline}
+.foot__nav{display:flex;flex-wrap:wrap;gap:10px 22px;margin:22px 0 0;padding:20px 0 0;
+           border-top:1px solid var(--rule-ink);list-style:none}
 .foot a{color:var(--paper);text-decoration:none;border-bottom:1px solid var(--rule-ink)}
 .foot a:hover{border-bottom-color:var(--accent)}
+.foot__legal{margin-top:20px;font-size:13px;line-height:1.55;max-width:78ch;color:var(--quiet-ink)}
+/* le champ que Nabyl doit remplir : impossible a laisser passer */
+.tbd{color:var(--accent-ink);font-weight:600;border-bottom:1px dotted var(--accent-ink);white-space:nowrap}
 </style>
 </head>
 <body>
@@ -430,6 +435,7 @@ h3{font-size:clamp(21px,2.3vw,26px);line-height:1.2;font-weight:500;letter-spaci
         <h2>Ton offre mérite un pôle de vente à sa hauteur.</h2>
         <p class="lede">On commence par l'audit. Trente minutes, un diagnostic honnête, et tu repars avec un plan, que tu bosses avec moi ou non.</p>
         <p class="meta"><span>Sans engagement</span><span>réponse sous 24 h</span></p>
+        <p class="meta" style="margin-top:12px"><span>Le détail de ce qui est vendu et à quel prix est sur la page <a href="prestations.html" style="color:var(--paper);border-bottom:1px solid var(--rule-ink);text-decoration:none">prestations et tarifs</a></span></p>
       </div>
 
       <form class="form" id="auditForm" novalidate>
@@ -488,8 +494,18 @@ h3{font-size:clamp(21px,2.3vw,26px);line-height:1.2;font-weight:500;letter-spaci
 
 <footer class="foot">
   <div class="shell foot__in">
-    <span>NYB Consulting · Audit et intégration de pôle de vente</span>
-    <span><a href="#audit">Réserver mon audit de vente</a></span>
+    <div class="foot__top">
+      <span>NYB Consulting · Audit et intégration de pôle de vente</span>
+      <span><a href="#audit">Réserver mon audit de vente</a></span>
+    </div>
+    <ul class="foot__nav">
+      <li><a href="prestations.html">Prestations et tarifs</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="conditions-generales.html">Conditions générales</a></li>
+      <li><a href="confidentialite.html">Confidentialité</a></li>
+      <li><a href="mentions-legales.html">Mentions légales</a></li>
+    </ul>
+    <p class="foot__legal"><span class="tbd">[nom légal de la LLC]</span> · <span class="tbd">[adresse complète du siège]</span> · Prestations de conseil réservées aux clients professionnels. Aucun résultat commercial n'est garanti.</p>
   </div>
 </footer>
 

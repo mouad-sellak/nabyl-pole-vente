@@ -1,10 +1,76 @@
 # NYB Consulting · Audit et intégration de pôle de vente
 
-Page unique en HTML pur (aucune dépendance, aucun build), hébergée sur GitHub Pages.
+**Dernière mise à jour : 19 août 2026** · ajout des pages légales exigées pour l'ouverture
+du compte bancaire professionnel (conditions générales, confidentialité, mentions légales,
+prestations et tarifs, contact) et branchement du pied de page sur l'ensemble du site.
+
+Site en HTML pur (aucune dépendance, aucun build), hébergé sur GitHub Pages.
 
 **En ligne :** https://mouad-sellak.github.io/nabyl-pole-vente/
 
-## La seule chose à personnaliser avant de diffuser
+## Les pages
+
+| Fichier | Rôle |
+| --- | --- |
+| `index.html` | La page de vente. CSS et JS embarqués, comme avant. |
+| `prestations.html` | Ce qui est vendu et à quel prix. La page que la banque cherche. |
+| `contact.html` | Adresse postale, adresse électronique, téléphone, délai de réponse. |
+| `conditions-generales.html` | 18 articles, B2B uniquement, obligation de moyens, responsabilité plafonnée. |
+| `confidentialite.html` | Ce qui est collecté, pourquoi, combien de temps, et les droits. |
+| `mentions-legales.html` | Identité de la LLC, hébergeur, propriété intellectuelle. |
+| `pages.css` | Feuille commune aux cinq pages secondaires. `index.html` garde son CSS embarqué. |
+
+## ⚠️ Ce qui doit être rempli avant d'envoyer le lien à la banque
+
+Les informations manquantes apparaissent **en rouge souligné en pointillés** sur les pages,
+entre crochets. Impossible de les rater. Tant qu'elles sont là, le site ne doit pas partir
+chez Mercury ni chez Nabyl.
+
+| À fournir | Où ça sert |
+| --- | --- |
+| `[nom légal de la LLC]` | Partout (10 fois) |
+| `[État]` | Mentions légales, CGV (droit applicable) |
+| `[comté et État du siège]` | CGV, tribunal compétent |
+| `[numéro d'immatriculation de la LLC]` | Mentions légales |
+| `[EIN]` | Mentions légales |
+| `[adresse complète du siège]` | Partout (10 fois) |
+| `[nom et adresse de l'agent enregistré]` | Mentions légales |
+| `[prénom et nom du gérant]` | Mentions légales, directeur de publication |
+| `[adresse e-mail de contact]` | Partout (7 fois) + `CONFIG.EMAIL` dans `index.html` |
+| `[numéro de téléphone]` | Contact |
+| `[nom de domaine]` | Mentions légales, balises `canonical` |
+| `[devise]` | Prestations, CGV |
+| `[prix de l'audit]` · `[prix mensuel de l'intégration]` | Prestations |
+| `[durée de l'audit en jours]` · `[durée d'engagement en mois]` | Prestations |
+| `[délai de paiement en jours]` | CGV 5.3, prestations |
+| `[délai de mise en demeure en jours ouvrés]` | CGV 5.4 |
+| `[frais de retard]` | CGV 5.4, prestations |
+| `[préavis en jours]` | CGV 8.2, prestations |
+
+Chaque libellé est unique dans tout le dépôt : un remplacement global par libellé suffit,
+sans risque de toucher au mauvais endroit.
+
+## Deux choix tranchés dans les conditions générales, à valider
+
+- **Retard de paiement (art. 5.4)** : suspension de la prestation et frais administratifs
+  forfaitaires fixes, **pas d'intérêts de retard en pourcentage** qui courent. Choix éthique
+  assumé. Si un avocat veut le standard du marché, ça se change en une ligne.
+- **Droit applicable (art. 17)** : le droit de l'État de la LLC. Cohérent avec l'entité
+  américaine. En B2B pur la clause tient bien, même face à des clients français ou belges.
+
+## Les quatre clauses qui protègent vraiment
+
+- **Art. 6, obligation de moyens.** Aucun volume de ventes ni taux de conversion garanti,
+  et les témoignages ne valent pas promesse de résultat. La clause la plus importante
+  pour un closer.
+- **Art. 13, indépendance des parties.** Empêche un client de requalifier la relation en
+  contrat de travail. Risque réel quand on travaille à temps plein pour une seule boîte.
+- **Art. 14, responsabilité plafonnée** aux sommes perçues sur 12 mois, dommages indirects
+  exclus (perte de chiffre d'affaires, de clientèle).
+- **Art. 2, B2B uniquement.** En excluant les consommateurs, tout le bloc droit de la
+  consommation saute : rétractation de 14 jours, information précontractuelle, etc.
+
+## L'adresse qui reçoit les demandes
 
 L'adresse qui reçoit les demandes. En bas de `index.html`, dans le bloc `CONFIG` :
 
